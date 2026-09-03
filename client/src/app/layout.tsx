@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/app/globals.css";
+import Header from "@/app/components/header";
+import Footer from "@/app/components/footer";
 
 export const vazir = localFont({
   src: [
@@ -46,8 +48,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazir.variable} ${kaghaz.variable}`}>
-        <main>{children}</main>
+      <body
+        className={`${vazir.variable} ${kaghaz.variable} min-h-lvh flex flex-col`}
+      >
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
