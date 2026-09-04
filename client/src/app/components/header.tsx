@@ -1,11 +1,12 @@
 import SearchBox from "@/app/components/searchbax";
 import Navmenu from "@/app/components/navbar";
+import Logo from "@/app/components/logo";
 
 function Header() {
   return (
-    <header className="border-b bg-white">
+    <header className="border-b border-b-amber-300 bg-white">
       <div className="lg:container m-auto flex items-center justify-between gap-6 px-4 py-4">
-        <div className="shrink-0 text-2xl font-bold">StyleUp</div>
+        <Logo />
 
         <div className="flex min-w-0 items-center gap-4">
           {/* searchbox component */}
