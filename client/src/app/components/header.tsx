@@ -1,3 +1,5 @@
+import SearchBox from "@/app/components/searchbax";
+
 function Header() {
   return (
     <header className="border-b bg-white">
@@ -5,12 +7,7 @@ function Header() {
         <div className="shrink-0 text-2xl font-bold">StyleUp</div>
 
         <div className="flex min-w-0 items-center gap-4">
-          <input
-            type="search"
-            placeholder="جستجو"
-            aria-label="Search"
-            className="hidden w-full max-w-xs rounded-md border px-3 py-2 outline-none focus:border-gray-500 sm:block"
-          />
+          <SearchBox />
           <nav
             aria-label="Main navigation"
             className="hidden items-center gap-4 md:flex"
