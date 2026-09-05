@@ -1,19 +1,20 @@
 import { Bell, House, ShoppingCart } from "lucide-react";
+import Link from "next/link";
 
 const nav = [
   {
     name: "خانه",
-    icon: <House width={18} />,
+    icon: <House className="w-4 h-4  text-gray-600" />,
     slug: "/",
   },
   {
     name: "اعلان‌ها",
-    icon: <Bell width={18} />,
+    icon: <Bell className="w-4 h-4  text-gray-600" />,
     slug: "/notification",
   },
   {
     name: "سبد خرید",
-    icon: <ShoppingCart width={18} />,
+    icon: <ShoppingCart className="w-4 h-4  text-gray-600" />,
     slug: "/shop",
   },
 ];
@@ -24,7 +25,7 @@ function Navmenu() {
       <ul className="flex items-center gap-4">
         {nav.map((item) => (
           <li key={item.name} className="hover:text-gray-600">
-            <a href={item.slug}>{item.icon}</a>
+            <Link href={item.slug}>{item.icon}</Link>
           </li>
         ))}
       </ul>
