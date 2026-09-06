@@ -1,9 +1,26 @@
+import Container from "@/app/components/container";
+import Image from "next/image";
+import ProductList from "@/app/components/productList";
+
 const Homepage = () => {
   return (
-    <section className="text-center mt-20 text-2xl">
-      <h1 className="font-kaghaz">این یک فونت کاغذ است</h1>
-      <p className="font-vazir">این یک فونت وزیر است</p>
-    </section>
+    <>
+      {/* hero section */}
+      <section className="text-center mt-20 text-2xl">
+        <Container>
+          <div className="relative aspect-[3/1] mb-12">
+            <Image src={"/featured.png"} alt="Feature Product" fill />
+          </div>
+        </Container>
+      </section>
+
+      {/* product section */}
+      <section>
+        <Container>
+          <ProductList />
+        </Container>
+      </section>
+    </>
   );
 };
 
