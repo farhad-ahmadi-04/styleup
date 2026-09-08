@@ -2,7 +2,13 @@ import Container from "@/app/components/container";
 import Image from "next/image";
 import ProductList from "@/app/components/productList";
 
-const Homepage = () => {
+const Homepage = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ category: string }>;
+}) => {
+  const category = (await searchParams).category;
+
   return (
     <>
       {/* hero section */}
@@ -17,7 +23,7 @@ const Homepage = () => {
       {/* product section */}
       <section>
         <Container>
-          <ProductList />
+          <ProductList category={category} params="homePage" />
         </Container>
       </section>
     </>
