@@ -13,42 +13,42 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const categories = [
   {
-    name: "All",
+    name: "همه",
     icon: <ShoppingBasket className="w-4 h-4" />,
     slug: "all",
   },
   {
-    name: "T-shirts",
+    name: "تیشرت",
     icon: <Shirt className="w-4 h-4" />,
     slug: "t-shirts",
   },
   {
-    name: "Shoes",
+    name: "کفش",
     icon: <Footprints className="w-4 h-4" />,
     slug: "shoes",
   },
   {
-    name: "Accessories",
+    name: "اکسسوری",
     icon: <Glasses className="w-4 h-4" />,
     slug: "accessories",
   },
   {
-    name: "Bags",
+    name: "کیف",
     icon: <Briefcase className="w-4 h-4" />,
     slug: "bags",
   },
   {
-    name: "Dresses",
+    name: "لباس زنانه",
     icon: <Venus className="w-4 h-4" />,
     slug: "dresses",
   },
   {
-    name: "Jackets",
+    name: "ژاکت",
     icon: <Shirt className="w-4 h-4" />,
     slug: "jackets",
   },
   {
-    name: "Gloves",
+    name: "دستکش",
     icon: <Hand className="w-4 h-4" />,
     slug: "gloves",
   },
