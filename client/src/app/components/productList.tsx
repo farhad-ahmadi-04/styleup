@@ -3,6 +3,7 @@ import Categories from "@/app/components/categories";
 import ProductCard from "@/app/components/productCard";
 import Link from "next/link";
 import { ArrowLeftIcon } from "lucide-react";
+import Sortby from "@/app/components/sortby";
 
 // temporary
 const product: ProductType[] = [
@@ -125,6 +126,16 @@ function ProductList({
   return (
     <>
       <Categories />
+      {params == "productsPage" && (
+        <Sortby
+          options={[
+            { value: "newest", label: "جدیدترین" },
+            { value: "oldest", label: "قدیمی ترین" },
+            { value: "asc", label: "قیمت: کمتر به بیشتر" },
+            { value: "desc", label: "قیمت: بیشتر به کمتر" },
+          ]}
+        />
+      )}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12">
         {product.map((product) => (
           <ProductCard key={product.id} product={product} />
