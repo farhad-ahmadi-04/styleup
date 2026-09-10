@@ -1,5 +1,6 @@
-import { Bell, House, ShoppingCart } from "lucide-react";
+import { Bell, House } from "lucide-react";
 import Link from "next/link";
+import ShoppingCart from "./shoppingCart";
 
 const nav = [
   {
@@ -12,11 +13,6 @@ const nav = [
     icon: <Bell className="w-4 h-4  text-gray-600" />,
     slug: "/notification",
   },
-  {
-    name: "سبد خرید",
-    icon: <ShoppingCart className="w-4 h-4  text-gray-600" />,
-    slug: "/shop",
-  },
 ];
 
 function Navmenu() {
@@ -28,6 +24,9 @@ function Navmenu() {
             <Link href={item.slug}>{item.icon}</Link>
           </li>
         ))}
+        <li className="hover:text-gray-600">
+          <ShoppingCart />
+        </li>
       </ul>
     </nav>
   );
