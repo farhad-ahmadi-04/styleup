@@ -1,4 +1,4 @@
-import { ProductType } from "@/types";
+import { ProductType } from "@/app/types";
 import Categories from "@/app/components/categories";
 import ProductCard from "@/app/components/productCard";
 import Link from "next/link";

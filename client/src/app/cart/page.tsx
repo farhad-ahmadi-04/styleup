@@ -1,6 +1,6 @@
 "use client";
 
-import { CartItemType } from "@/types";
+import { CartItemType } from "@/app/types";
 import Container from "../components/container";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Trash2 } from "lucide-react";
