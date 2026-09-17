@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "@/app/globals.css";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
+import { ToastContainer } from "react-toastify";
 
 export const vazir = localFont({
   src: [
@@ -54,6 +55,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ToastContainer position="bottom-right" />
       </body>
     </html>
   );
