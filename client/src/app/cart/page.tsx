@@ -1,6 +1,6 @@
 "use client";
 
-import { CartItemType } from "@/app/types";
+import { ShippingFormInputs } from "@/app/types";
 import Container from "../components/container";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Trash2 } from "lucide-react";
@@ -8,6 +8,7 @@ import ShippingForm from "../components/shippingForm";
 import PaymentForm from "../components/paymentForm";
 import { useState } from "react";
 import Image from "next/image";
+import useCartStore from "@/stores/cartStore";
 
 const steps = [
   {
@@ -24,82 +25,11 @@ const steps = [
   },
 ];
 
-const cartItems: CartItemType[] = [
-  {
-    id: 1,
-    name: "تیشرت آدیداس CoreFit",
-    shortDescription:
-      "تیشرتی راحت و سبک با طراحی مدرن، مناسب استفاده روزمره و ورزشی.",
-    description:
-      "تیشرت آدیداس CoreFit با طراحی ساده و کاربردی، مناسب برای استفاده روزمره و فعالیت‌های ورزشی. پارچه نرم و راحت آن آزادی حرکت مناسبی فراهم می‌کند.",
-    price: 3700000,
-    sizes: ["s", "m", "l", "xl", "xxl"],
-    colors: ["gray", "purple", "green"],
-    images: {
-      gray: "/products/1g.png",
-      purple: "/products/1p.png",
-      green: "/products/1gr.png",
-    },
-    quantity: 2,
-    selectedSize: "xl",
-    selectedColor: "gray",
-  },
-
-  {
-    id: 2,
-    name: "زیپ گرم پوما Ultra Warm",
-    shortDescription:
-      "لباسی گرم و راحت با طراحی زیپ‌دار، مناسب روزهای سرد و استفاده روزمره.",
-    description:
-      "زیپ پوما Ultra Warm با طراحی گرم و کاربردی، انتخابی مناسب برای روزهای سرد. طراحی زیپ‌دار و راحت آن برای استفاده روزمره و فعالیت‌های بیرون از خانه مناسب است.",
-    price: 3700000,
-    sizes: ["s", "m", "l", "xl"],
-    colors: ["gray", "green"],
-    images: { gray: "/products/2g.png", green: "/products/2gr.png" },
-    quantity: 1,
-    selectedSize: "xl",
-    selectedColor: "gray",
-  },
-  {
-    id: 3,
-    name: "پولوشرت Nike Air Essentials",
-    shortDescription:
-      "پولوشرتی راحت و سبک با طراحی مینیمال، مناسب استفاده روزمره.",
-    description:
-      "پولوشرت Nike Air Essentials با طراحی مینیمال و راحت، برای استفاده روزمره و فعالیت‌های سبک انتخابی مناسب است. طراحی ساده آن به‌راحتی با استایل‌های مختلف هماهنگ می‌شود.",
-    price: 3700000,
-    sizes: ["s", "m", "l"],
-    colors: ["green", "blue", "black"],
-    images: {
-      green: "/products/3gr.png",
-      blue: "/products/3b.png",
-      black: "/products/3bl.png",
-    },
-    quantity: 1,
-    selectedSize: "m",
-    selectedColor: "green",
-  },
-  {
-    id: 4,
-    name: "تیشرت Nike Dri Flex",
-    shortDescription:
-      "تیشرتی سبک و راحت با طراحی اسپرت، مناسب استفاده روزمره و ورزشی.",
-    description:
-      "تیشرت Nike Dri Flex با طراحی اسپرت و سبک، برای فعالیت‌های روزمره و ورزشی مناسب است. فرم راحت آن آزادی حرکت خوبی در طول روز فراهم می‌کند.",
-    price: 3700000,
-    sizes: ["s", "m", "l"],
-    colors: ["white", "pink"],
-    images: { white: "/products/4w.png", pink: "/products/4p.png" },
-    quantity: 3,
-    selectedSize: "m",
-    selectedColor: "white",
-  },
-];
-
 function CartPage() {
   const searchparams = useSearchParams();
   const routed = useRouter();
-  const [shippingForm, setShippingForm] = useState({});
+  const [shippingForm, setShippingForm] = useState<ShippingFormInputs>();
+  const { cart, removeFromCart } = useCartStore();
 
   const activeStep = parseInt(searchparams.get("step") || "1");
 
@@ -135,10 +65,10 @@ function CartPage() {
             {/* steps */}
             <div className="w-full lg:w-7/12 shadow-lg vorder-1 vorder-gray-100 p-8 rounded-lg flex flex-col gap-8">
               {activeStep === 1 ? (
-                cartItems.map((item) => (
+                cart.map((item) => (
                   <div
                     className="flex items-center justify-between"
-                    key={item.id}
+                    key={item.id + item.selectedColor + item.selectedSize}
                   >
                     {/* image & details item */}
                     <div className="flex gap-8">
@@ -171,7 +101,10 @@ function CartPage() {
                       </div>
                     </div>
                     {/* delet button */}
-                    <button className="w-8 h-8 rounded-full bg-red-100 hover:bg-red-200 transition-all duration-300 text-red-400 flex items-center justify-center cursor-pointer">
+                    <button
+                      onClick={() => removeFromCart(item)}
+                      className="w-8 h-8 rounded-full bg-red-100 hover:bg-red-200 transition-all duration-300 text-red-400 flex items-center justify-center cursor-pointer"
+                    >
                       <Trash2 className="w-3 h-3" />
                     </button>
                   </div>
@@ -194,7 +127,7 @@ function CartPage() {
                 <div className="flex justify-between">
                   <p className="text-gray-500">جمع خرید</p>
                   <p className="font-medium">
-                    {cartItems
+                    {cart
                       .reduce(
                         (acc, item) => acc + item.price * item.quantity,
                         0,
@@ -207,7 +140,7 @@ function CartPage() {
                   <p className="text-gray-500"> تخفیف (%10)</p>
                   <p className="font-medium">
                     {(
-                      (cartItems.reduce(
+                      (cart.reduce(
                         (acc, item) => acc + item.price * item.quantity,
                         0,
                       ) *
@@ -228,7 +161,7 @@ function CartPage() {
                 <div className="flex justify-between">
                   <p className="text-gray-800 font-semibold">مجموع</p>
                   <p className="font-medium">
-                    {cartItems
+                    {cart
                       .reduce(
                         (acc, item) => acc + item.price * item.quantity,
                         0,
