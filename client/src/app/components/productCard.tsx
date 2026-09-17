@@ -1,16 +1,30 @@
 "use client";
 
 import { ProductType } from "@/app/types";
+import useCartStore from "@/stores/cartStore";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 function ProductCard({ product }: { product: ProductType }) {
   const [productTypes, setProductTypes] = useState({
     size: product.sizes[0],
     color: product.colors[0],
   });
+  const { addToCart } = useCartStore();
+
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      quantity: 1,
+      selectedColor: productTypes.color,
+      selectedSize: productTypes.size,
+    });
+
+    toast.success("محصول با موفقیت اظافه شد");
+  };
 
   const handleProductTypes = ({
     type,
@@ -91,7 +105,10 @@ function ProductCard({ product }: { product: ProductType }) {
           <p className="font-medium">
             {product.price.toLocaleString("fa-IR")}تومان
           </p>
-          <button className="flex items-center  gap-2 ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300">
+          <button
+            onClick={handleAddToCart}
+            className="flex items-center  gap-2 ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300"
+          >
             <ShoppingCart className="w-4 h-4" />
             اضافه کردن
           </button>
