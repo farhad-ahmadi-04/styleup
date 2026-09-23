@@ -108,25 +108,25 @@ const AppSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>پروژه‌ها</SidebarGroupLabel>
-          <SidebarGroupAction>
-            <Plus /> <span className="sr-only">افزودن پروژه</span>
-          </SidebarGroupAction>
+          <SidebarGroupLabel>کاربران</SidebarGroupLabel>
+          {/* <SidebarGroupAction>
+            <span className="sr-only">افزودن پروژه</span>
+          </SidebarGroupAction> */}
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/#">
+                  <Link href="/users">
                     <Projector />
-                    مشاهده همه پروژه‌ها
+                    مشاهده همه کاربران
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/#">
+                  <Link href="/payments">
                     <Plus />
-                    افزودن پروژه
+                    آخرین تراکنش ها
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
