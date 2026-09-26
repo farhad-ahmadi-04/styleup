@@ -19,39 +19,32 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Button } from "./ui/button";
 
 const formSchema = z.object({
-  username: z
+  fullname: z
     .string()
-    .min(2, { message: "نام کاربری باید حداقل ۲ نویسه باشد!" })
+    .min(2, { message: "نام کاربری باید حداقل ۲ کاراکتر باشد!" })
     .max(50),
   email: z.string().email({ message: "آدرس ایمیل نامعتبر است!" }),
   phone: z.string().min(10).max(15),
-  location: z.string().min(2),
-  role: z.enum(["admin", "user"]),
+  address: z.string().min(2),
+  city: z.string().min(2),
 });
 
 const EditUser = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "john.doe",
-      email: "john.doe@gmail.com",
-      phone: "+1 234 5678",
-      location: "New York, NY",
-      role: "admin",
+      fullname: "اکبر لولایی",
+      email: "akbar@gmail.com",
+      phone: "09177777777",
+      address: "اردبیل - میدان امام خمینی - خ امام2",
+      city: "اردبیل",
     },
   });
   return (
-    <SheetContent>
+    <SheetContent side="left">
       <SheetHeader>
         <SheetTitle className="mb-4">ویرایش کاربر</SheetTitle>
         <SheetDescription asChild>
@@ -59,16 +52,14 @@ const EditUser = () => {
             <form className="space-y-8">
               <FormField
                 control={form.control}
-                name="username"
+                name="fullname"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>نام کاربری</FormLabel>
+                    <FormLabel>نام و نام‌خانوادگی</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
-                    <FormDescription>
-                      این نام کاربری عمومی شماست.
-                    </FormDescription>
+                    <FormDescription>نام و نام‌خانوداگی کاربر</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -83,7 +74,7 @@ const EditUser = () => {
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      فقط مدیر می‌تواند ایمیل شما را ببیند.
+                      فقط مدیر می‌تواند ایمیل شما را ببیند (داخواه)
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -99,7 +90,7 @@ const EditUser = () => {
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      فقط مدیر می‌تواند شماره تلفن شما را ببیند.
+                      فقط مدیر می‌تواند شماره تلفن شما را ببیند (داخواه)
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -107,15 +98,15 @@ const EditUser = () => {
               />
               <FormField
                 control={form.control}
-                name="location"
+                name="address"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>مکان</FormLabel>
+                    <FormLabel>آدرس</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      این مکان عمومی شماست.
+                      این آدرس سکونت شماست (دلخواه)
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -123,28 +114,21 @@ const EditUser = () => {
               />
               <FormField
                 control={form.control}
-                name="role"
-                render={() => (
+                name="city"
+                render={({ field }) => (
                   <FormItem>
-                    <FormLabel>نقش</FormLabel>
+                    <FormLabel>شهر</FormLabel>
                     <FormControl>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="نقش" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="admin">مدیر</SelectItem>
-                          <SelectItem value="user">کاربر</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      فقط کاربران تأییدشده می‌توانند مدیر باشند.
+                      این محل زندگی شماست (دلخواه)
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+
               <Button type="submit">ثبت</Button>
             </form>
           </Form>
