@@ -13,13 +13,15 @@ import {
 import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import Link from "next/link";
 
 export type Payment = {
   id: string;
   amount: number;
-  username: string;
+  fullname: string;
   email: string;
-  status: "pending" | "processing" | "success" | "failed";
+  userId: number;
+  status: "در انتظار" | "در حال پردازش" | "موفق" | "ناموفق";
 };
 
 export const columns: ColumnDef<Payment>[] = [
@@ -44,7 +46,7 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "username",
+    accessorKey: "fullname",
     header: "کاربر",
   },
   {
@@ -71,19 +73,12 @@ export const columns: ColumnDef<Payment>[] = [
         <div
           className={cn(
             `p-1 rounded-md w-max text-xs`,
-            status === "pending" && "bg-yellow-500/40",
-            status === "success" && "bg-green-500/40",
-            status === "failed" && "bg-red-500/40",
+            status === "در انتظار" && "bg-yellow-500/40",
+            status === "موفق" && "bg-green-500/40",
+            status === "ناموفق" && "bg-red-500/40",
           )}
         >
-          {
-            {
-              pending: "در انتظار",
-              processing: "در حال پردازش",
-              success: "موفق",
-              failed: "ناموفق",
-            }[status as Payment["status"]]
-          }
+          {status as Payment["status"]}
         </div>
       );
     },
@@ -115,7 +110,7 @@ export const columns: ColumnDef<Payment>[] = [
                 <MoreHorizontal className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent>
               <DropdownMenuLabel>عملیات</DropdownMenuLabel>
               <DropdownMenuItem
                 onClick={() => navigator.clipboard.writeText(payment.id)}
@@ -123,7 +118,9 @@ export const columns: ColumnDef<Payment>[] = [
                 کپی شناسه پرداخت
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>مشاهده مشتری</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={`/users/${payment.userId}`}>مشاهده مشتری</Link>
+              </DropdownMenuItem>
               <DropdownMenuItem>مشاهده جزئیات پرداخت</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
