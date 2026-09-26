@@ -1,5 +1,3 @@
-import CardList from "@/components/CardList";
-import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -29,18 +27,18 @@ const SingleUserPage = () => {
           <BreadcrumbItem>
             <BreadcrumbLink href="/">داشبورد</BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <BreadcrumbSeparator className="rotate-180" />
           <BreadcrumbItem>
             <BreadcrumbLink href="/users">کاربران</BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <BreadcrumbSeparator className="rotate-180" />
           <BreadcrumbItem>
             <BreadcrumbPage>John Doe</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
       {/* CONTAINER */}
-      <div className="mt-4 flex flex-col xl:flex-row gap-8">
+      <div className="mt-4 mb-4 flex flex-col xl:flex-row gap-8">
         {/* LEFT */}
         <div className="w-full xl:w-1/3 space-y-6">
           {/* USER BADGES CONTAINER */}
@@ -71,7 +69,8 @@ const SingleUserPage = () => {
                 <HoverCardContent>
                   <h1 className="font-bold mb-2">مدیر</h1>
                   <p className="text-sm text-muted-foreground">
-                    مدیران به همه قابلیت‌ها دسترسی دارند و می‌توانند کاربران را مدیریت کنند.
+                    مدیران به همه قابلیت‌ها دسترسی دارند و می‌توانند کاربران را
+                    مدیریت کنند.
                   </p>
                 </HoverCardContent>
               </HoverCard>
@@ -105,6 +104,22 @@ const SingleUserPage = () => {
               </HoverCard>
             </div>
           </div>
+
+          {/* USER CARD CONTAINER */}
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-2">
+            <div className="flex items-center gap-2">
+              <Avatar className="size-12">
+                <AvatarImage src="https://avatars.githubusercontent.com/u/1486366" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <h1 className="text-xl font-semibold">John Doe</h1>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              این کاربر در پروژه‌های مختلف فعالیت دارد و به‌طور منظم با تیم
+              همکاری می‌کند.
+            </p>
+          </div>
+
           {/* INFORMATION CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
             <div className="flex items-center justify-between">
@@ -118,30 +133,28 @@ const SingleUserPage = () => {
             </div>
             <div className="space-y-4 mt-4">
               <div className="flex flex-col gap-2 mb-8">
-                <p className="text-sm text-muted-foreground">
-                  تکمیل پروفایل
-                </p>
+                <p className="text-sm text-muted-foreground">تکمیل پروفایل</p>
                 <Progress value={66} />
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold">نام کاربری:</span>
-                <span>john.doe</span>
+                <span className="font-bold">نام و نام‌خانوادگی:</span>
+                <span>اکبر لولایی</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-bold">ایمیل:</span>
-                <span>john.doe@gmail.com</span>
+                <span>jakbar@gamil.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-bold">تلفن:</span>
-                <span>+1 234 5678</span>
+                <span>091777707777</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold">مکان:</span>
-                <span>New York, NY</span>
+                <span className="font-bold">شهر:</span>
+                <span>اردبیل</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold">نقش:</span>
-                <Badge>مدیر</Badge>
+                <span className="font-bold">آدرس:</span>
+                <span>اردبیل - میدان امام - کوچه امام2</span>
               </div>
             </div>
             <p className="text-sm text-muted-foreground mt-4">
@@ -149,25 +162,12 @@ const SingleUserPage = () => {
             </p>
           </div>
           {/* CARD LIST CONTAINER */}
-          <div className="bg-primary-foreground p-4 rounded-lg">
+          {/* <div className="bg-primary-foreground p-4 rounded-lg">
             <CardList title="تراکنش‌های اخیر" />
-          </div>
+          </div> */}
         </div>
         {/* RIGHT */}
         <div className="w-full xl:w-2/3 space-y-6">
-          {/* USER CARD CONTAINER */}
-          <div className="bg-primary-foreground p-4 rounded-lg space-y-2">
-            <div className="flex items-center gap-2">
-              <Avatar className="size-12">
-                <AvatarImage src="https://avatars.githubusercontent.com/u/1486366" />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
-              <h1 className="text-xl font-semibold">John Doe</h1>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              این کاربر در پروژه‌های مختلف فعالیت دارد و به‌طور منظم با تیم همکاری می‌کند.
-            </p>
-          </div>
           {/* CHART CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
             <h1 className="text-xl font-semibold">فعالیت کاربر</h1>
