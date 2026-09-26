@@ -88,12 +88,13 @@ export const columns: ColumnDef<Payment>[] = [
     header: () => <div className="text-left">مبلغ</div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"));
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
+      // const formatted = new Intl.NumberFormat("en", {
+      //   style: "currency",
+      //   currency: "IRR",
+      // }).format(amount);
+      const format = (amount * 10000).toLocaleString("fa-IR");
 
-      return <div className="text-left font-medium">{formatted}</div>;
+      return <div className="text-left font-medium">{format} تومان</div>;
     },
   },
   {
