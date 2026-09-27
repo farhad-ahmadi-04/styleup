@@ -20,6 +20,8 @@ import {
 } from "@/components/ui/table";
 import { DataTablePagination } from "@/components/TablePagination";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -48,7 +50,15 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded-md border mb-4">
+      {Object.keys(rowSelection).length > 0 && (
+        <div className="text-left">
+          <Button variant={"destructive"} className="text-sm cursor-pointer">
+            <Trash2 className="w-4 h-4" />
+            حذف تراکنش (ها)
+          </Button>
+        </div>
+      )}
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
