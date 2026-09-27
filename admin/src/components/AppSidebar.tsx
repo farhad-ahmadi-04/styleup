@@ -9,6 +9,8 @@ import {
   Plus,
   Projector,
   ChevronDown,
+  Shirt,
+  ShoppingBasket,
 } from "lucide-react";
 import {
   Sidebar,
@@ -41,6 +43,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
+import { Sheet, SheetTrigger } from "./ui/sheet";
+import EditUser from "./EditUser";
 
 const items = [
   {
@@ -73,6 +77,7 @@ const items = [
 const AppSidebar = () => {
   return (
     <Sidebar collapsible="icon" side="right">
+      {/* sidebar header */}
       <SidebarHeader className="py-4">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -85,7 +90,9 @@ const AppSidebar = () => {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
       <SidebarSeparator />
+      {/* sidebar content */}
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>برنامه</SidebarGroupLabel>
@@ -107,11 +114,51 @@ const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>محصولات</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href="/products">
+                    <Shirt />
+                    مشاهده همه محصولات
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                        <Plus />
+                        افزودن محصول
+                      </Link>
+                    </SidebarMenuButton>
+                  </SheetTrigger>
+                  <EditUser />
+                </Sheet>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                        <Plus />
+                        افزودن دسته بندی
+                      </Link>
+                    </SidebarMenuButton>
+                  </SheetTrigger>
+                  <EditUser />
+                </Sheet>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
         <SidebarGroup>
           <SidebarGroupLabel>کاربران</SidebarGroupLabel>
-          {/* <SidebarGroupAction>
-            <span className="sr-only">افزودن پروژه</span>
-          </SidebarGroupAction> */}
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
@@ -123,84 +170,52 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="/payments">
-                    <Plus />
-                    آخرین تراکنش ها
-                  </Link>
-                </SidebarMenuButton>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                        <Plus />
+                        افزودن کاربر
+                      </Link>
+                    </SidebarMenuButton>
+                  </SheetTrigger>
+                  <EditUser />
+                </Sheet>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        {/* COLLAPSABLE */}
-        <Collapsible defaultOpen className="group/collapsible">
-          <SidebarGroup>
-            <SidebarGroupLabel asChild>
-              <CollapsibleTrigger>
-                گروه قابل جمع‌شدن
-                <ChevronDown className="mr-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
-              </CollapsibleTrigger>
-            </SidebarGroupLabel>
-            <CollapsibleContent>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <Link href="/#">
-                        <Projector />
-                        مشاهده همه پروژه‌ها
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <Link href="/#">
-                        <Plus />
-                        افزودن پروژه
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </CollapsibleContent>
-          </SidebarGroup>
-        </Collapsible>
-        {/* NESTED */}
+
         <SidebarGroup>
-          <SidebarGroupLabel>موارد تو در تو</SidebarGroupLabel>
+          <SidebarGroupLabel>سفارشات و پرداخت‌ها</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/#">
-                    <Projector />
-                    مشاهده همه پروژه‌ها
+                  <Link href="/payments">
+                    <ShoppingBasket />
+                    مشاهده همه پرداخت‌ها
                   </Link>
                 </SidebarMenuButton>
-                <SidebarMenuSub>
-                  <SidebarMenuSubItem>
-                    <SidebarMenuSubButton asChild>
-                      <Link href="/#">
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
                         <Plus />
-                        افزودن پروژه
+                        افزودن سفارش
                       </Link>
-                    </SidebarMenuSubButton>
-                  </SidebarMenuSubItem>
-                  <SidebarMenuSubItem>
-                    <SidebarMenuSubButton asChild>
-                      <Link href="/#">
-                        <Plus />
-                        افزودن دسته‌بندی
-                      </Link>
-                    </SidebarMenuSubButton>
-                  </SidebarMenuSubItem>
-                </SidebarMenuSub>
+                    </SidebarMenuButton>
+                  </SheetTrigger>
+                  <EditUser />
+                </Sheet>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
