@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { PaymentFormInputs, paymentFormSchema } from "../types";
+import { PaymentFormInputs, paymentFormSchema } from "../app/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";

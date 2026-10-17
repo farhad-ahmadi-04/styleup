@@ -1,7 +1,7 @@
-import Navmenu from "@/app/components/navbar";
-import Logo from "@/app/components/logo";
+import Navmenu from "@/components/navbar";
+import Logo from "@/components/logo";
 import Link from "next/link";
-import SearchBar from "@/app/components/searchbar";
+import SearchBar from "@/components/searchbar";
 
 function Header() {
   return (

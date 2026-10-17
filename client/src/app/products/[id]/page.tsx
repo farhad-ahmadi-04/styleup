@@ -1,5 +1,5 @@
-import Container from "@/app/components/container";
-import ProductInteraction from "@/app/components/productInteraction";
+import Container from "@/components/container";
+import ProductInteraction from "@/components/productInteraction";
 import Image from "next/image";
 
 // TEMPORARY
@@ -50,7 +50,7 @@ async function ProductPage({
       <Container>
         <div className="flex flex-col gap-4 lg:flex-row md:pag-12 mt-12">
           {/* image */}
-          <div className="w-full lg:w-5/12 relative aspect-[2/3]">
+          <div className="w-full lg:w-5/12 relative aspect-2/3">
             <Image
               src={product.images[selectedColor]}
               alt={product.name}

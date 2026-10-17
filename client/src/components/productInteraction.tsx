@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ProductType } from "../types";
+import { ProductType } from "../app/types";
 import { useState } from "react";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import useCartStore from "@/stores/cartStore";
@@ -63,7 +63,7 @@ function ProductInteraction({
           {product.sizes.map((size) => (
             <div
               key={size}
-              className={`cursor-pointer border-1 p-[2px] ${selectedSize === size ? "border-gray-600" : "border-gray-300"}`}
+              className={`cursor-pointer border p-0.5 ${selectedSize === size ? "border-gray-600" : "border-gray-300"}`}
               onClick={() => handleTypeChange({ type: "size", value: size })}
             >
               <div
@@ -83,7 +83,7 @@ function ProductInteraction({
           {product.colors.map((color) => (
             <div
               key={color}
-              className={`cursor-pointer border-1 p-[2px] ${selectedColor === color ? "border-gray-600" : "border-gray-300"}`}
+              className={`cursor-pointer border p-0.5 ${selectedColor === color ? "border-gray-600" : "border-gray-300"}`}
               onClick={() => handleTypeChange({ type: "color", value: color })}
             >
               <div
@@ -100,14 +100,14 @@ function ProductInteraction({
         <span className="text-gray-500">تعداد</span>
         <div className="flex items-center gap-2">
           <button
-            className="cursor-pointer border-1 border-gray-3 p-1"
+            className="cursor-pointer border border-gray-3 p-1"
             onClick={() => handleQuantityChange("decrement")}
           >
             <Plus className="w-4 h-4" />
           </button>
           <span>{quantity}</span>
           <button
-            className="cursor-pointer border-1 border-gray-3 p-1"
+            className="cursor-pointer border border-gray-3 p-1"
             onClick={() => handleQuantityChange("increment")}
           >
             <Minus className="w-4 h-4" />

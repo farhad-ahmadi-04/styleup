@@ -1,9 +1,9 @@
 import { ProductType } from "@/app/types";
-import Categories from "@/app/components/categories";
-import ProductCard from "@/app/components/productCard";
+import Categories from "@/components/categories";
+import ProductCard from "@/components/productCard";
 import Link from "next/link";
 import { ArrowLeftIcon } from "lucide-react";
-import Sortby from "@/app/components/sortby";
+import Sortby from "@/components/sortby";
 
 // temporary
 const product: ProductType[] = [

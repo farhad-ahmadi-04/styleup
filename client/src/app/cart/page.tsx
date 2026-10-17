@@ -1,11 +1,11 @@
 "use client";
 
 import { ShippingFormInputs } from "@/app/types";
-import Container from "../components/container";
+import Container from "../../components/container";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Trash2 } from "lucide-react";
-import ShippingForm from "../components/shippingForm";
-import PaymentForm from "../components/paymentForm";
+import ShippingForm from "../../components/shippingForm";
+import PaymentForm from "../../components/paymentForm";
 import { useState } from "react";
 import Image from "next/image";
 import useCartStore from "@/stores/cartStore";

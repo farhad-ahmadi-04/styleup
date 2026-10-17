@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ShippingFormInputs, shippingFormSchema } from "../types";
+import { ShippingFormInputs, shippingFormSchema } from "../app/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
