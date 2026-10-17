@@ -7,13 +7,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 const chartConfig = {
   desktop: {
@@ -39,7 +33,7 @@ const AppAreaChart = () => {
   return (
     <div className="">
       <h1 className="text-lg font-medium mb-6">بازدیدکنندگان کل</h1>
-      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+      <ChartContainer config={chartConfig} className="min-h-50 w-full">
         <AreaChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={false} />
           <XAxis

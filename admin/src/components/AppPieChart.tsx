@@ -44,16 +44,15 @@ const chartData = [
 ];
 
 const AppPieChart = () => {
-
   // If you don't use React compiler use useMemo hook to improve performance
   const totalVisitors = chartData.reduce((acc, curr) => acc + curr.visitors, 0);
-  
+
   return (
     <div className="">
       <h1 className="text-lg font-medium mb-6">استفاده از مرورگر</h1>
       <ChartContainer
         config={chartConfig}
-        className="mx-auto aspect-square max-h-[250px]"
+        className="mx-auto aspect-square max-h-62.5"
       >
         <PieChart>
           <ChartTooltip
