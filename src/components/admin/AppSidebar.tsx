@@ -91,131 +91,131 @@ const AppSidebar = () => {
       </SidebarHeader>
 
       <SidebarSeparator />
-      <ScrollArea className="h-10/12">
-        {/* sidebar content */}
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>برنامه</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
+      {/* <ScrollArea className="h-10/12"> */}
+      {/* sidebar content */}
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>برنامه</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {items.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <Link href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                  {item.title === "صندوق ورودی" && (
+                    <SidebarMenuBadge>24</SidebarMenuBadge>
+                  )}
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>محصولات</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href="/dashboard/products">
+                    <Shirt />
+                    مشاهده همه محصولات
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Sheet>
+                  <SheetTrigger asChild>
                     <SidebarMenuButton asChild>
-                      <Link href={item.url}>
-                        <item.icon />
-                        <span>{item.title}</span>
+                      <Link href="#">
+                        <Plus />
+                        افزودن محصول
                       </Link>
                     </SidebarMenuButton>
-                    {item.title === "صندوق ورودی" && (
-                      <SidebarMenuBadge>24</SidebarMenuBadge>
-                    )}
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+                  </SheetTrigger>
+                  <AddProduct />
+                </Sheet>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                        <Plus />
+                        افزودن دسته بندی
+                      </Link>
+                    </SidebarMenuButton>
+                  </SheetTrigger>
+                  <AddCategory />
+                </Sheet>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
 
-          <SidebarGroup>
-            <SidebarGroupLabel>محصولات</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <Link href="/dashboard/products">
-                      <Shirt />
-                      مشاهده همه محصولات
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Sheet>
-                    <SheetTrigger asChild>
-                      <SidebarMenuButton asChild>
-                        <Link href="#">
-                          <Plus />
-                          افزودن محصول
-                        </Link>
-                      </SidebarMenuButton>
-                    </SheetTrigger>
-                    <AddProduct />
-                  </Sheet>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Sheet>
-                    <SheetTrigger asChild>
-                      <SidebarMenuButton asChild>
-                        <Link href="#">
-                          <Plus />
-                          افزودن دسته بندی
-                        </Link>
-                      </SidebarMenuButton>
-                    </SheetTrigger>
-                    <AddCategory />
-                  </Sheet>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>کاربران</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href="/dashboard/users">
+                    <Projector />
+                    مشاهده همه کاربران
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                        <Plus />
+                        افزودن کاربر
+                      </Link>
+                    </SidebarMenuButton>
+                  </SheetTrigger>
+                  <AddUser />
+                </Sheet>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
 
-          <SidebarGroup>
-            <SidebarGroupLabel>کاربران</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <Link href="/dashboard/users">
-                      <Projector />
-                      مشاهده همه کاربران
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Sheet>
-                    <SheetTrigger asChild>
-                      <SidebarMenuButton asChild>
-                        <Link href="#">
-                          <Plus />
-                          افزودن کاربر
-                        </Link>
-                      </SidebarMenuButton>
-                    </SheetTrigger>
-                    <AddUser />
-                  </Sheet>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-
-          <SidebarGroup>
-            <SidebarGroupLabel>سفارشات و پرداخت‌ها</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <Link href="/dashboard/payments">
-                      <ShoppingBasket />
-                      مشاهده همه پرداخت‌ها
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Sheet>
-                    <SheetTrigger asChild>
-                      <SidebarMenuButton asChild>
-                        <Link href="#">
-                          <Plus />
-                          افزودن سفارش
-                        </Link>
-                      </SidebarMenuButton>
-                    </SheetTrigger>
-                    <AddOrder />
-                  </Sheet>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-      </ScrollArea>
+        <SidebarGroup>
+          <SidebarGroupLabel>سفارشات و پرداخت‌ها</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href="/dashboard/payments">
+                    <ShoppingBasket />
+                    مشاهده همه پرداخت‌ها
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                        <Plus />
+                        افزودن سفارش
+                      </Link>
+                    </SidebarMenuButton>
+                  </SheetTrigger>
+                  <AddOrder />
+                </Sheet>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+      {/* </ScrollArea> */}
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
