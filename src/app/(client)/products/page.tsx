@@ -1,5 +1,5 @@
-import Container from "../../components/client/container";
-import ProductList from "../../components/client/productList";
+import Container from "@/components/client/container";
+import ProductList from "@/components/client/productList";
 
 async function ProductsPage({
   searchParams,
