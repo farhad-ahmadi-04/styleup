@@ -13,39 +13,37 @@ type HeroPanel = {
   align: string;
 };
 
-// ترتیب آرایه = جای فیزیکی پنل‌ها: بالا-چپ، بالا-راست، پایین-چپ، پایین-راست
 const panels: HeroPanel[] = [
   {
     title: "مردانه",
     subtitle: "استایل تمیز و جذاب",
-    href: "/products",
-    image: "/monto-persian-model-st.jpg",
-    clip: "md:[clip-path:shape(from_0_5px,arc_to_5px_0_of_5px_cw,hline_to_calc(100%_-_5px),arc_to_100%_5px_of_5px_cw,vline_to_calc(45%_-_5px),arc_to_calc(100%_-_5px)_45%_of_5px_cw,hline_to_calc(72%_+_5px),arc_to_72%_calc(45%_+_5px)_of_5px_ccw,vline_to_calc(100%_-_5px),arc_to_calc(72%_-_5px)_100%_of_5px_cw,hline_to_5px,arc_to_0_calc(100%_-_5px)_of_5px_cw,close)]",
+    href: "/men",
+    image: "/images/hero/men.jpg",
+    clip: "md:[clip-path:shape(from_0_10px,arc_to_10px_0_of_10px_cw,hline_to_calc(100%_-_10px),arc_to_100%_10px_of_10px_cw,vline_to_calc(45%_-_10px),arc_to_calc(100%_-_10px)_45%_of_10px_cw,hline_to_calc(72%_+_10px),arc_to_72%_calc(45%_+_10px)_of_10px_ccw,vline_to_calc(100%_-_10px),arc_to_calc(72%_-_10px)_100%_of_10px_cw,hline_to_10px,arc_to_0_calc(100%_-_10px)_of_10px_cw,close)]",
     align: "items-start text-left",
   },
   {
     title: "زنانه",
     subtitle: "طراحی‌های راحت و روزمره",
-    href: "/products",
-    image:
-      "/Tweets liked by kate moss archive (@katemossarchive) _ Twitter.jpg",
-    clip: "md:[clip-path:shape(from_0_5px,arc_to_5px_0_of_5px_cw,hline_to_calc(100%_-_5px),arc_to_100%_5px_of_5px_cw,vline_to_calc(100%_-_5px),arc_to_calc(100%_-_5px)_100%_of_5px_cw,hline_to_calc(28%_+_5px),arc_to_28%_calc(100%_-_5px)_of_5px_cw,vline_to_calc(45%_+_5px),arc_to_calc(28%_-_5px)_45%_of_5px_ccw,hline_to_5px,arc_to_0_calc(45%_-_5px)_of_5px_cw,close)]",
+    href: "/women",
+    image: "/images/hero/women.jpg",
+    clip: "md:[clip-path:shape(from_0_10px,arc_to_10px_0_of_10px_cw,hline_to_calc(100%_-_10px),arc_to_100%_10px_of_10px_cw,vline_to_calc(100%_-_10px),arc_to_calc(100%_-_10px)_100%_of_10px_cw,hline_to_calc(28%_+_10px),arc_to_28%_calc(100%_-_10px)_of_10px_cw,vline_to_calc(45%_+_10px),arc_to_calc(28%_-_10px)_45%_of_10px_ccw,hline_to_10px,arc_to_0_calc(45%_-_10px)_of_10px_cw,close)]",
     align: "items-end text-right",
   },
   {
     title: "تخفیف‌ها",
     subtitle: "تا ۵۰٪ تخفیف روی کالاهای منتخب",
-    href: "/products",
-    image: "/Onitsuka Tiger™ Unisex Mexico 66 Sneakers.jpg",
-    clip: "md:[clip-path:shape(from_0_5px,arc_to_5px_0_of_5px_cw,hline_to_calc(72%_-_5px),arc_to_72%_5px_of_5px_cw,vline_to_calc(45%_-_5px),arc_to_calc(72%_+_5px)_45%_of_5px_ccw,hline_to_calc(100%_-_5px),arc_to_100%_calc(45%_+_5px)_of_5px_cw,vline_to_calc(100%_-_5px),arc_to_calc(100%_-_5px)_100%_of_5px_cw,hline_to_5px,arc_to_0_calc(100%_-_5px)_of_5px_cw,close)]",
+    href: "/sale",
+    image: "/images/hero/sale.jpg",
+    clip: "md:[clip-path:shape(from_0_10px,arc_to_10px_0_of_10px_cw,hline_to_calc(72%_-_10px),arc_to_72%_10px_of_10px_cw,vline_to_calc(45%_-_10px),arc_to_calc(72%_+_10px)_45%_of_10px_ccw,hline_to_calc(100%_-_10px),arc_to_100%_calc(45%_+_10px)_of_10px_cw,vline_to_calc(100%_-_10px),arc_to_calc(100%_-_10px)_100%_of_10px_cw,hline_to_10px,arc_to_0_calc(100%_-_10px)_of_10px_cw,close)]",
     align: "items-start text-left",
   },
   {
     title: "تازه‌ها",
     subtitle: "هر هفته محصولات جدید",
-    href: "/products",
-    image: "/monto-persian-st003.jpg",
-    clip: "md:[clip-path:shape(from_28%_5px,arc_to_calc(28%_+_5px)_0_of_5px_cw,hline_to_calc(100%_-_5px),arc_to_100%_5px_of_5px_cw,vline_to_calc(100%_-_5px),arc_to_calc(100%_-_5px)_100%_of_5px_cw,hline_to_5px,arc_to_0_calc(100%_-_5px)_of_5px_cw,vline_to_calc(45%_+_5px),arc_to_5px_45%_of_5px_cw,hline_to_calc(28%_-_5px),arc_to_28%_calc(45%_-_5px)_of_5px_ccw,close)]",
+    href: "/new",
+    image: "/images/hero/new.jpg",
+    clip: "md:[clip-path:shape(from_28%_10px,arc_to_calc(28%_+_10px)_0_of_10px_cw,hline_to_calc(100%_-_10px),arc_to_100%_10px_of_10px_cw,vline_to_calc(100%_-_10px),arc_to_calc(100%_-_10px)_100%_of_10px_cw,hline_to_10px,arc_to_0_calc(100%_-_10px)_of_10px_cw,vline_to_calc(45%_+_10px),arc_to_10px_45%_of_10px_cw,hline_to_calc(28%_-_10px),arc_to_28%_calc(45%_-_10px)_of_10px_ccw,close)]",
     align: "items-end text-right",
   },
 ];
@@ -65,7 +63,7 @@ export default function HeroSection() {
                 key={panel.title}
                 href={panel.href}
                 className={cn(
-                  "group relative min-h-[220px] overflow-hidden rounded-[5px] bg-muted md:min-h-0",
+                  "group relative min-h-[220px] overflow-hidden rounded-[10px] bg-muted md:min-h-0",
                   panel.clip,
                 )}
               >
