@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/app/globals.css";
-import Header from "@/components/client/header";
-import Footer from "@/components/client/footer";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { ToastContainer } from "react-toastify";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 export const vazir = localFont({
   src: [
@@ -53,15 +52,10 @@ export default function RootLayout({
       <body
         className={`${vazir.variable} ${kaghaz.variable} min-h-lvh flex flex-col antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main className="flex-1">{children}</main>
-          <ToastContainer position="bottom-right" />
-        </ThemeProvider>
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <ToastContainer position="bottom-right" />
       </body>
     </html>
   );
