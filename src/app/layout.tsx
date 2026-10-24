@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${vazir.variable} ${kaghaz.variable} min-h-lvh flex flex-col antialiased`}
+        className={`${vazir.variable} ${kaghaz.variable} min-h-lvh flex flex-col antialiased bg-gradient-to-b from-primary/10 via-primary/5 to-transparent`}
       >
         <Header />
         <main className="flex-1">{children}</main>

@@ -1,6 +1,7 @@
 import Container from "@/components/container";
 import Image from "next/image";
 import ProductList from "@/components/productList";
+import HeroSection from "@/components/heroSection";
 
 const Homepage = async ({
   searchParams,
@@ -12,13 +13,7 @@ const Homepage = async ({
   return (
     <>
       {/* hero section */}
-      <section className="text-center mt-20 text-2xl">
-        <Container>
-          <div className="relative aspect-[3/1] mb-12">
-            <Image src={"/client/featured.png"} alt="Feature Product" fill />
-          </div>
-        </Container>
-      </section>
+      <HeroSection />
 
       {/* product section */}
       <section>
