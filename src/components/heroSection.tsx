@@ -17,7 +17,7 @@ const panels: HeroPanel[] = [
   {
     title: "زمستانه",
     subtitle: "استایل تمیز و جذاب",
-    href: "/men",
+    href: "/products",
     image: "/winter style.jpg",
     clip: "md:[clip-path:shape(from_0_10px,arc_to_10px_0_of_10px_cw,hline_to_calc(100%_-_10px),arc_to_100%_10px_of_10px_cw,vline_to_calc(45%_-_10px),arc_to_calc(100%_-_10px)_45%_of_10px_cw,hline_to_calc(72%_+_10px),arc_to_72%_calc(45%_+_10px)_of_10px_ccw,vline_to_calc(100%_-_10px),arc_to_calc(72%_-_10px)_100%_of_10px_cw,hline_to_10px,arc_to_0_calc(100%_-_10px)_of_10px_cw,close)]",
     align: "items-start text-left",
@@ -25,7 +25,7 @@ const panels: HeroPanel[] = [
   {
     title: "پاییزه",
     subtitle: "طراحی‌های راحت و روزمره",
-    href: "/women",
+    href: "/products",
     image: "/fall style.jpg",
     clip: "md:[clip-path:shape(from_0_10px,arc_to_10px_0_of_10px_cw,hline_to_calc(100%_-_10px),arc_to_100%_10px_of_10px_cw,vline_to_calc(100%_-_10px),arc_to_calc(100%_-_10px)_100%_of_10px_cw,hline_to_calc(28%_+_10px),arc_to_28%_calc(100%_-_10px)_of_10px_cw,vline_to_calc(45%_+_10px),arc_to_calc(28%_-_10px)_45%_of_10px_ccw,hline_to_10px,arc_to_0_calc(45%_-_10px)_of_10px_cw,close)]",
     align: "items-end text-right",
@@ -33,7 +33,7 @@ const panels: HeroPanel[] = [
   {
     title: "تخفیف‌ها",
     subtitle: "تا ۵۰٪ تخفیف روی کالاهای منتخب",
-    href: "/sale",
+    href: "/products",
     image: "/Onitsuka Tiger™ Unisex Mexico 66 Sneakers.jpg",
     clip: "md:[clip-path:shape(from_0_10px,arc_to_10px_0_of_10px_cw,hline_to_calc(72%_-_10px),arc_to_72%_10px_of_10px_cw,vline_to_calc(45%_-_10px),arc_to_calc(72%_+_10px)_45%_of_10px_ccw,hline_to_calc(100%_-_10px),arc_to_100%_calc(45%_+_10px)_of_10px_cw,vline_to_calc(100%_-_10px),arc_to_calc(100%_-_10px)_100%_of_10px_cw,hline_to_10px,arc_to_0_calc(100%_-_10px)_of_10px_cw,close)]",
     align: "items-start text-left",
@@ -41,7 +41,7 @@ const panels: HeroPanel[] = [
   {
     title: "تازه‌ها",
     subtitle: "هر هفته محصولات جدید",
-    href: "/new",
+    href: "/products",
     image: "/woman outfit.jpg",
     clip: "md:[clip-path:shape(from_28%_10px,arc_to_calc(28%_+_10px)_0_of_10px_cw,hline_to_calc(100%_-_10px),arc_to_100%_10px_of_10px_cw,vline_to_calc(100%_-_10px),arc_to_calc(100%_-_10px)_100%_of_10px_cw,hline_to_10px,arc_to_0_calc(100%_-_10px)_of_10px_cw,vline_to_calc(45%_+_10px),arc_to_10px_45%_of_10px_cw,hline_to_calc(28%_-_10px),arc_to_28%_calc(45%_-_10px)_of_10px_ccw,close)]",
     align: "items-end text-right",
