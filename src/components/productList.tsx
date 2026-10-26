@@ -146,7 +146,7 @@ async function ProductList({
       </div>
       {params == "homePage" && (
         <Link
-          href={category ? `/products/?category=${category}` : "/products"}
+          href={category ? `/shop/category/?category=${category}` : "/shop/"}
           className="flex items-center gap-2 mt-4 rounded-lg shadow-lg hover:text-white hover:bg-black transition-all duration-300 px-4 py-2 w-fit"
         >
           همه محصولات

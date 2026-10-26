@@ -1,5 +1,4 @@
 import Container from "@/components/container";
-import Image from "next/image";
 import ProductList from "@/components/productList";
 import HeroSection from "@/components/heroSection";
 

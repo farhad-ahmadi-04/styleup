@@ -44,7 +44,7 @@ function ProductCard({ product }: { product: ProductWithRelations }) {
   return (
     <div className="shadow-lg rounded-lg overflow-hidden">
       {/* image */}
-      <Link href={`/products/${product.id}`}>
+      <Link href={`/shop/products/${product.id}`}>
         <div className="relative aspect-[2/3] overflow-hidden">
           <Image
             src={product.images[0].url}
