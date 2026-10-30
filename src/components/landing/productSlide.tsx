@@ -30,7 +30,25 @@ function ProductSlide({
             </Link>
           </div>
           <div className="flex items-center justify-between gap-2">
-            <Swiper slidesPerView={5.5} spaceBetween={30} className="mySwiper">
+            <Swiper
+              slidesPerView={5.5}
+              spaceBetween={30}
+              className="mySwiper"
+              breakpoints={{
+                "0": {
+                  slidesPerView: 3,
+                  spaceBetween: 8,
+                },
+                "768": {
+                  slidesPerView: 4,
+                  spaceBetween: 10,
+                },
+                "1280": {
+                  slidesPerView: 5.5,
+                  spaceBetween: 10,
+                },
+              }}
+            >
               {products.map((product) => (
                 <SwiperSlide key={product.id}>
                   <ProductCard product={product} />
