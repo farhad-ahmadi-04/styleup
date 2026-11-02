@@ -4,11 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import Container from "../container";
-import { Button } from "../ui/button";
+import Container from "../../container";
+import { Button } from "../../ui/button";
 import Link from "next/link";
-import { ProductWithRelations } from "@/actions/getAction";
-import ProductCard from "../productCard";
+import { getProducts, ProductWithRelations } from "@/actions/getAction";
+import ProductCard from "../../productCard";
+import { useEffect, useState } from "react";
 
 function ProductSlide({
   title,
@@ -20,7 +21,7 @@ function ProductSlide({
   products: ProductWithRelations[];
 }) {
   return (
-    <section>
+    <section className="my-10 lg:my-20">
       <Container>
         <div className="space-y-5">
           <div className="flex items-center justify-between">
@@ -36,11 +37,11 @@ function ProductSlide({
               className="mySwiper"
               breakpoints={{
                 "0": {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                   spaceBetween: 8,
                 },
                 "768": {
-                  slidesPerView: 4,
+                  slidesPerView: 3.3,
                   spaceBetween: 10,
                 },
                 "1280": {
