@@ -400,9 +400,13 @@ export type Database = {
           category_id: number | null;
           created_at: string;
           description: string | null;
+          discount_ends_at: string | null;
+          discount_percent: number | null;
+          discount_starts_at: string | null;
           id: number;
           is_active: boolean;
           name: string;
+          new_until: string;
           price: number;
           short_description: string | null;
         };
@@ -410,9 +414,13 @@ export type Database = {
           category_id?: number | null;
           created_at?: string;
           description?: string | null;
+          discount_ends_at?: string | null;
+          discount_percent?: number | null;
+          discount_starts_at?: string | null;
           id?: never;
           is_active?: boolean;
           name: string;
+          new_until?: string;
           price: number;
           short_description?: string | null;
         };
@@ -420,9 +428,13 @@ export type Database = {
           category_id?: number | null;
           created_at?: string;
           description?: string | null;
+          discount_ends_at?: string | null;
+          discount_percent?: number | null;
+          discount_starts_at?: string | null;
           id?: never;
           is_active?: boolean;
           name?: string;
+          new_until?: string;
           price?: number;
           short_description?: string | null;
         };
@@ -468,7 +480,18 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      discount_active: {
+        Args: { p: Database["public"]["Tables"]["products"]["Row"] };
+        Returns: boolean;
+      };
+      final_price: {
+        Args: { p: Database["public"]["Tables"]["products"]["Row"] };
+        Returns: number;
+      };
+      is_new: {
+        Args: { p: Database["public"]["Tables"]["products"]["Row"] };
+        Returns: boolean;
+      };
     };
     Enums: {
       order_status:
