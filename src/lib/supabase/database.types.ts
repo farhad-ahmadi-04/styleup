@@ -400,11 +400,14 @@ export type Database = {
           category_id: number | null;
           created_at: string;
           description: string | null;
+          discount_active: boolean;
           discount_ends_at: string | null;
           discount_percent: number | null;
           discount_starts_at: string | null;
+          final_price: number;
           id: number;
           is_active: boolean;
+          is_new: boolean;
           name: string;
           new_until: string;
           price: number;
@@ -414,11 +417,14 @@ export type Database = {
           category_id?: number | null;
           created_at?: string;
           description?: string | null;
+          discount_active: boolean;
           discount_ends_at?: string | null;
           discount_percent?: number | null;
           discount_starts_at?: string | null;
+          final_price: number;
           id?: never;
           is_active?: boolean;
+          is_new: boolean;
           name: string;
           new_until?: string;
           price: number;
@@ -428,11 +434,14 @@ export type Database = {
           category_id?: number | null;
           created_at?: string;
           description?: string | null;
+          discount_active?: boolean;
           discount_ends_at?: string | null;
           discount_percent?: number | null;
           discount_starts_at?: string | null;
+          final_price?: number;
           id?: never;
           is_active?: boolean;
+          is_new?: boolean;
           name?: string;
           new_until?: string;
           price?: number;
@@ -480,18 +489,7 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      discount_active: {
-        Args: { p: Database["public"]["Tables"]["products"]["Row"] };
-        Returns: boolean;
-      };
-      final_price: {
-        Args: { p: Database["public"]["Tables"]["products"]["Row"] };
-        Returns: number;
-      };
-      is_new: {
-        Args: { p: Database["public"]["Tables"]["products"]["Row"] };
-        Returns: boolean;
-      };
+      refresh_product_flags: { Args: never; Returns: undefined };
     };
     Enums: {
       order_status:
