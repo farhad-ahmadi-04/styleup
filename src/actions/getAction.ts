@@ -14,7 +14,10 @@ const PRODUCT_SELECT = `
   created_at,
   category:categories ( id, name, slug ),
   images:product_images ( id, color, url ),
-  variants:product_variants ( id, size, color, stock )
+  variants:product_variants ( id, size, color, stock ),
+  is_new,
+  discount_active,
+  final_price
 ` as const;
 
 const productsQuery = supabase.from("products").select(PRODUCT_SELECT);
@@ -44,12 +47,28 @@ export async function getProductById(id: number) {
 }
 
 // get newest products
+export async function getDiscountProducts() {
+  try {
+    const { data: discountProducts, error } = await supabase
+      .from("products")
+      .select(PRODUCT_SELECT)
+      .neq("discount_percent", 0);
+
+    if (error) throw new Error(error.message);
+    return discountProducts;
+  } catch (error) {
+    throw new Error(error as string);
+  }
+}
+
+// get newest products
 export async function getNewestProducts() {
   try {
     const { data: newProducts, error } = await supabase
       .from("products")
       .select(PRODUCT_SELECT)
-      .neq("discount_percent", 0);
+      .eq("is_new", true)
+      .order("created_at", { ascending: false });
 
     if (error) throw new Error(error.message);
     return newProducts;
