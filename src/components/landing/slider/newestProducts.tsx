@@ -3,30 +3,78 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 import Container from "../../container";
 import { Button } from "../../ui/button";
 import Link from "next/link";
-import { getProducts, ProductWithRelations } from "@/actions/getAction";
+import { getNewestProducts, ProductWithRelations } from "@/actions/getAction";
 import ProductCard from "../../productCard";
 import { useEffect, useState } from "react";
+import { Spinner } from "@/components/ui/spinner";
 
-function ProductSlide({
-  title,
-  pageLink,
-  products,
-}: {
-  title: string;
-  pageLink: string;
-  products: ProductWithRelations[];
-}) {
+function ProductSlide() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [newProduct, setNewProduct] = useState<ProductWithRelations[]>([]);
+
+  useEffect(() => {
+    async function NewestProducts() {
+      try {
+        const Products = await getNewestProducts();
+
+        setNewProduct(Products);
+      } catch (error) {
+        setError((error as Error).message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    NewestProducts();
+  }, []);
+
+  if (isLoading)
+    return (
+      <section className="my-10 lg:my-20">
+        <Container>
+          <div className="space-y-5">
+            <div className="flex items-center justify-between">
+              <h3 className="font-kaghaz text-2xl lg:text-4xl">محصولات تازه</h3>
+              <Link href="/shop">
+                <Button className="cursor-pointer">همه محصولات</Button>
+              </Link>
+            </div>
+            <p className="text-center text-sm">
+              <Spinner className="size-6" />
+            </p>
+          </div>
+        </Container>
+      </section>
+    );
+
+  if (error)
+    return (
+      <section className="my-10 lg:my-20">
+        <Container>
+          <div className="space-y-5">
+            <div className="flex items-center justify-between">
+              <h3 className="font-kaghaz text-2xl lg:text-4xl">محصولات تازه</h3>
+              <Link href="/shop">
+                <Button className="cursor-pointer">همه محصولات</Button>
+              </Link>
+            </div>
+            <p>{error}</p>
+          </div>
+        </Container>
+      </section>
+    );
+
   return (
     <section className="my-10 lg:my-20">
       <Container>
         <div className="space-y-5">
           <div className="flex items-center justify-between">
-            <h3 className="font-kaghaz text-2xl lg:text-4xl">{title}</h3>
-            <Link href={pageLink}>
+            <h3 className="font-kaghaz text-2xl lg:text-4xl">محصولات تازه</h3>
+            <Link href="/shop">
               <Button className="cursor-pointer">همه محصولات</Button>
             </Link>
           </div>
@@ -50,7 +98,7 @@ function ProductSlide({
                 },
               }}
             >
-              {products.map((product) => (
+              {newProduct.map((product) => (
                 <SwiperSlide key={product.id}>
                   <ProductCard product={product} />
                 </SwiperSlide>
