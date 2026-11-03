@@ -1,8 +1,7 @@
-import Container from "@/components/container";
-import ProductList from "@/components/productList";
 import HeroSection from "@/components/heroSection";
-import ProductSlide from "@/components/landing/slider/newestProducts";
 import Categories from "@/components/categories";
+import NewestProductsSlider from "@/components/landing/slider/newestProducts";
+import DiscountProductsSlider from "@/components/landing/slider/discountProducts";
 
 const Homepage = async ({
   searchParams,
@@ -17,14 +16,16 @@ const Homepage = async ({
       <HeroSection />
       <Categories />
       {/* product slide */}
-      <ProductSlide />
+      <NewestProductsSlider />
+      {/* product slide */}
+      <DiscountProductsSlider />
 
-      {/* product section */}
+      {/* product section
       <section>
         <Container>
           <ProductList category={category} params="homePage" />
         </Container>
-      </section>
+      </section> */}
     </>
   );
 };
