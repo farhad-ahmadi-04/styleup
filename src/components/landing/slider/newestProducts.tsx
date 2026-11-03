@@ -11,17 +11,17 @@ import ProductCard from "../../productCard";
 import { useEffect, useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
 
-function ProductSlide() {
+function NewestProductsSlider() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  const [newProduct, setNewProduct] = useState<ProductWithRelations[]>([]);
+  const [products, setProducts] = useState<ProductWithRelations[]>([]);
 
   useEffect(() => {
     async function NewestProducts() {
       try {
-        const Products = await getNewestProducts();
+        const data = await getNewestProducts();
 
-        setNewProduct(Products);
+        setProducts(data);
       } catch (error) {
         setError((error as Error).message);
       } finally {
@@ -38,9 +38,11 @@ function ProductSlide() {
         <Container>
           <div className="space-y-5">
             <div className="flex items-center justify-between">
-              <h3 className="font-kaghaz text-2xl lg:text-4xl">محصولات تازه</h3>
+              <h3 className="font-kaghaz text-2xl lg:text-4xl">
+                پیشنهاد شگفت انگیز
+              </h3>
               <Link href="/shop">
-                <Button className="cursor-pointer">همه محصولات</Button>
+                <Button className="cursor-pointer">مشاهده همه</Button>
               </Link>
             </div>
             <p className="text-center text-sm">
@@ -57,9 +59,12 @@ function ProductSlide() {
         <Container>
           <div className="space-y-5">
             <div className="flex items-center justify-between">
-              <h3 className="font-kaghaz text-2xl lg:text-4xl">محصولات تازه</h3>
+              <h3 className="font-kaghaz text-2xl lg:text-4xl">
+                {" "}
+                پیشنهاد شگفت انگیز
+              </h3>
               <Link href="/shop">
-                <Button className="cursor-pointer">همه محصولات</Button>
+                <Button className="cursor-pointer">مشاهده همه</Button>
               </Link>
             </div>
             <p>{error}</p>
@@ -75,7 +80,7 @@ function ProductSlide() {
           <div className="flex items-center justify-between">
             <h3 className="font-kaghaz text-2xl lg:text-4xl">محصولات تازه</h3>
             <Link href="/shop">
-              <Button className="cursor-pointer">همه محصولات</Button>
+              <Button className="cursor-pointer">مشاهده همه</Button>
             </Link>
           </div>
           <div className="flex items-center justify-between gap-2">
@@ -98,7 +103,7 @@ function ProductSlide() {
                 },
               }}
             >
-              {newProduct.map((product) => (
+              {products.map((product) => (
                 <SwiperSlide key={product.id}>
                   <ProductCard product={product} />
                 </SwiperSlide>
@@ -111,4 +116,4 @@ function ProductSlide() {
   );
 }
 
-export default ProductSlide;
+export default NewestProductsSlider;
