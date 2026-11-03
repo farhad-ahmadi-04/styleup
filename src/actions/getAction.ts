@@ -43,6 +43,21 @@ export async function getProductById(id: number) {
   return data;
 }
 
+// get newest products
+export async function getNewestProducts() {
+  try {
+    const { data: newProducts, error } = await supabase
+      .from("products")
+      .select(PRODUCT_SELECT)
+      .neq("discount_percent", 0);
+
+    if (error) throw new Error(error.message);
+    return newProducts;
+  } catch (error) {
+    throw new Error(error as string);
+  }
+}
+
 // get categories
 export async function getCategories() {
   const { data: categories, error } = await supabase
