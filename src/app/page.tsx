@@ -1,15 +1,9 @@
 import HeroSection from "@/components/heroSection";
-import Categories from "@/components/categories";
+import Categories from "@/components/landing/categories";
 import NewestProductsSlider from "@/components/landing/slider/newestProducts";
 import DiscountProductsSlider from "@/components/landing/slider/discountProducts";
 
-const Homepage = async ({
-  searchParams,
-}: {
-  searchParams: Promise<{ category: string }>;
-}) => {
-  const category = (await searchParams).category;
-
+const Homepage = () => {
   return (
     <>
       {/* hero section */}
