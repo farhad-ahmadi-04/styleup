@@ -9,6 +9,8 @@ import Link from "next/link";
 import { getNewestProducts, ProductWithRelations } from "@/actions/getAction";
 import ProductCard from "../../productCard";
 import { useEffect, useState } from "react";
+import { Navigation } from "swiper/modules";
+import "swiper/css/navigation";
 import { Spinner } from "@/components/ui/spinner";
 
 function NewestProductsSlider() {
@@ -87,6 +89,8 @@ function NewestProductsSlider() {
             <Swiper
               slidesPerView={5.5}
               spaceBetween={30}
+              navigation={true}
+              modules={[Navigation]}
               className="mySwiper"
               breakpoints={{
                 "0": {
