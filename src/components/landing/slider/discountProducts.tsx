@@ -8,16 +8,16 @@ import { Button } from "../../ui/button";
 import Link from "next/link";
 import { getDiscountProducts, ProductWithRelations } from "@/actions/getAction";
 import ProductCard from "../../productCard";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
-import { Sparkles } from "lucide-react";
-import { Navigation } from "swiper/modules";
-import "swiper/css/navigation";
+import { ArrowLeftCircle, ArrowRightCircle, Sparkles } from "lucide-react";
+import { Swiper as SwiperType } from "swiper/types";
 
 function DiscountProductsSlider() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [products, setProducts] = useState<ProductWithRelations[]>([]);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     async function NewestProducts() {
@@ -96,18 +96,18 @@ function DiscountProductsSlider() {
               <Button className="cursor-pointer">مشاهده همه</Button>
             </Link>
           </div>
-          <div className="relative flex items-center justify-between gap-2">
+          <div className="relative flex items-center justify-between gap-2 group">
             <Swiper
               slidesPerView={5.5}
               spaceBetween={30}
-              navigation={true}
-              modules={[Navigation]}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
               className="mySwiper"
               breakpoints={{
                 "0": {
                   slidesPerView: 2,
                   spaceBetween: 8,
-                  navigation: false,
                 },
                 "768": {
                   slidesPerView: 4,
@@ -125,6 +125,24 @@ function DiscountProductsSlider() {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <div className="flex shrink-0 flex-col gap-2">
+              <button
+                type="button"
+                aria-label="محصول قبلی"
+                onClick={() => swiperRef.current?.slidePrev()}
+                className="z-10 cursor-pointer absolute right-1 hidden lg:block text-amber-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-10 group-hover:translate-x-0"
+              >
+                <ArrowRightCircle className="w-8 h-8" />
+              </button>
+              <button
+                type="button"
+                aria-label="محصول بعدی"
+                onClick={() => swiperRef.current?.slideNext()}
+                className=" z-10 absolute left-1 cursor-pointer hidden lg:block text-amber-500 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-10 group-hover:translate-x-0"
+              >
+                <ArrowLeftCircle className="w-8 h-8" />
+              </button>
+            </div>
             <div className="from-background z-10 pointer-events-none absolute inset-y-0 left-0 w-2/12 bg-gradient-to-r" />
             <div className="from-background to-background/5 z-10 pointer-events-none absolute inset-y-0 right-full w-2/12 bg-gradient-to-l" />{" "}
           </div>
