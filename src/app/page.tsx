@@ -2,13 +2,16 @@ import HeroSection from "@/components/heroSection";
 import Categories from "@/components/landing/categories";
 import NewestProductsSlider from "@/components/landing/slider/newestProducts";
 import DiscountProductsSlider from "@/components/landing/slider/discountProducts";
+import { MarqueeSection } from "@/components/landing/marqueeSection";
 
 const Homepage = () => {
   return (
     <>
       {/* hero section */}
       <HeroSection />
+      {/* categories */}
       <Categories />
+      <MarqueeSection />
       {/* product slide */}
       <NewestProductsSlider />
       {/* product slide */}
