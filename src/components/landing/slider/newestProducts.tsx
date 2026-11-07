@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 import { Spinner } from "@/components/ui/spinner";
+import { Sparkles } from "lucide-react";
 
 function NewestProductsSlider() {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,9 +41,12 @@ function NewestProductsSlider() {
         <Container>
           <div className="space-y-5">
             <div className="flex items-center justify-between">
-              <h3 className="font-kaghaz text-2xl lg:text-4xl">
-                پیشنهاد شگفت انگیز
-              </h3>
+              <div className="flex items-center gap-2">
+                <Sparkles className="text-amber-500" />
+                <h3 className="font-kaghaz text-2xl lg:text-4xl">
+                  محصولات <span className="text-purple-500">تازه </span>
+                </h3>
+              </div>
               <Link href="/shop">
                 <Button className="cursor-pointer">مشاهده همه</Button>
               </Link>
@@ -61,10 +65,12 @@ function NewestProductsSlider() {
         <Container>
           <div className="space-y-5">
             <div className="flex items-center justify-between">
-              <h3 className="font-kaghaz text-2xl lg:text-4xl">
-                {" "}
-                پیشنهاد شگفت انگیز
-              </h3>
+              <div className="flex items-center gap-2">
+                <Sparkles className="text-amber-500" />
+                <h3 className="font-kaghaz text-2xl lg:text-4xl">
+                  محصولات <span className="text-purple-500">تازه </span>
+                </h3>
+              </div>
               <Link href="/shop">
                 <Button className="cursor-pointer">مشاهده همه</Button>
               </Link>
@@ -76,16 +82,22 @@ function NewestProductsSlider() {
     );
 
   return (
-    <section className="my-10 lg:my-20">
+    <section className="my-10 lg:my-20 overflow-x-hidden">
       <Container>
         <div className="space-y-5">
           <div className="flex items-center justify-between">
-            <h3 className="font-kaghaz text-2xl lg:text-4xl">محصولات تازه</h3>
+            <div className="flex items-center gap-2">
+              <Sparkles className="text-amber-500" />
+              <h3 className="font-kaghaz text-2xl lg:text-4xl">
+                {" "}
+                محصولات <span className="text-purple-500">تازه </span>
+              </h3>
+            </div>
             <Link href="/shop">
               <Button className="cursor-pointer">مشاهده همه</Button>
             </Link>
           </div>
-          <div className="flex items-center justify-between gap-2">
+          <div className="relative flex items-center justify-between gap-2">
             <Swiper
               slidesPerView={5.5}
               spaceBetween={30}
@@ -96,13 +108,14 @@ function NewestProductsSlider() {
                 "0": {
                   slidesPerView: 2,
                   spaceBetween: 8,
+                  navigation: false,
                 },
                 "768": {
-                  slidesPerView: 3.3,
+                  slidesPerView: 4,
                   spaceBetween: 10,
                 },
                 "1280": {
-                  slidesPerView: 5.5,
+                  slidesPerView: 6,
                   spaceBetween: 10,
                 },
               }}
@@ -113,6 +126,8 @@ function NewestProductsSlider() {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <div className="from-background z-10 pointer-events-none absolute inset-y-0 left-0 w-2/12 bg-gradient-to-r" />
+            <div className="from-background to-background/5 z-10 pointer-events-none absolute inset-y-0 right-full w-2/12 bg-gradient-to-l" />{" "}
           </div>
         </div>
       </Container>
