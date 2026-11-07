@@ -3,7 +3,6 @@
 import { ProductWithRelations } from "@/actions/getAction";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 
 function ProductCard({ product }: { product: ProductWithRelations }) {
@@ -64,8 +63,27 @@ function ProductCard({ product }: { product: ProductWithRelations }) {
             {product.name}
           </CardTitle>
 
-          <p>{product.price.toLocaleString("fa-IR")}تومان</p>
+          {product.discount_active ? (
+            <div className="flex items-center gap-1">
+              <p className="line-through text-red-300">
+                {product.price.toLocaleString("fa-IR")}
+              </p>
+              <p className="font-semibold">
+                {product.final_price.toLocaleString("fa-IR")}ت
+              </p>
+            </div>
+          ) : (
+            <p className="font-semibold">
+              {product.price.toLocaleString("fa-IR")}تومان
+            </p>
+          )}
         </CardHeader>
+
+        {product.discount_percent && (
+          <div className="absolute flex items-center justify-center bg-amber-500/20 right-3 top-2 text-sm py-1 px-2 rounded-full text-amber-700 font-bold">
+            {product.discount_percent}%
+          </div>
+        )}
       </Card>
     </Link>
   );
