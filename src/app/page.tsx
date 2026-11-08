@@ -4,6 +4,7 @@ import NewestProductsSlider from "@/components/landing/slider/newestProducts";
 import DiscountProductsSlider from "@/components/landing/slider/discountProducts";
 import { MarqueeSection } from "@/components/landing/marqueeSection";
 import SuggestionBox from "@/components/landing/suggestionBox";
+import WhyStyleUp from "@/components/landing/whyStyleUp";
 
 const Homepage = () => {
   return (
@@ -19,6 +20,8 @@ const Homepage = () => {
       <DiscountProductsSlider />
       {/* suggestion box */}
       <SuggestionBox />
+      {/* why styleup section */}
+      <WhyStyleUp />
 
       {/* product section
       <section>
