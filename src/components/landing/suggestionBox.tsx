@@ -57,7 +57,7 @@ function SuggestionBox() {
                   </div>
                   <Button
                     variant={"ghost"}
-                    className="translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+                    className="translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer text-gray-300"
                   >
                     مشاهده همه
                   </Button>
