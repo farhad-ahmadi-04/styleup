@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Container from "../container";
 import { TypingAnimation } from "../ui/typing-animation";
 import { WordRotate } from "../ui/word-rotate";
+import { DiaTextReveal } from "../ui/dia-text-reveal";
 
 type HeroPanel = {
   title: string;
@@ -54,16 +55,14 @@ export default function HeroSection() {
   return (
     <section className="mx-auto w-full  px-4 py-8">
       <Container>
-        <div className="flex items-center justify-center gap-2 md:gap-4">
-          <h1 className="font-kaghaz  text-center text-4xl md:text-6xl text-gray-900 font-bold tracking-tight ">
-            استایل‌آپ{" "}
-          </h1>
-          <h1 className="font-kaghaz  text-center text-4xl md:text-6xl text-gray-900 font-bold tracking-tight ">
-            <WordRotate words={["با", "برای", "همراه"]} />
-          </h1>
-          <h1 className="font-kaghaz  text-center text-4xl md:text-6xl text-gray-900 font-bold tracking-tight ">
-            شما
-          </h1>
+        <div className=" flex items-center justify-center gap-2 md:gap-4">
+          <DiaTextReveal
+            className="font-kaghaz text-4xl md:text-6xl font-bold tracking-tight"
+            colors={["#f97316", "#eab308", "#22c55e", "#3b82f6", "#a855f7"]}
+            delay={0.35}
+            duration={2.4}
+            text="استایل‌آپ با شما معنا پیدا میکند"
+          />
         </div>
 
         <div className="relative">
