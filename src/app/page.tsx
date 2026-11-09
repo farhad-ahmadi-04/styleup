@@ -1,4 +1,4 @@
-import HeroSection from "@/components/heroSection";
+import HeroSection from "@/components/landing/heroSection";
 import Categories from "@/components/landing/categories";
 import NewestProductsSlider from "@/components/landing/slider/newestProducts";
 import DiscountProductsSlider from "@/components/landing/slider/discountProducts";

@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Container from "./container";
+import Container from "../container";
+import { TypingAnimation } from "../ui/typing-animation";
+import { WordRotate } from "../ui/word-rotate";
 
 type HeroPanel = {
   title: string;
@@ -52,9 +54,17 @@ export default function HeroSection() {
   return (
     <section className="mx-auto w-full  px-4 py-8">
       <Container>
-        <h1 className="-mb-5 text-center text-4xl font-bold tracking-tight md:text-6xl">
-          styleup
-        </h1>
+        <div className="flex items-center justify-center gap-2 md:gap-4">
+          <h1 className="font-kaghaz  text-center text-4xl md:text-6xl text-gray-900 font-bold tracking-tight ">
+            استایل‌آپ{" "}
+          </h1>
+          <h1 className="font-kaghaz  text-center text-4xl md:text-6xl text-gray-900 font-bold tracking-tight ">
+            <WordRotate words={["با", "برای", "همراه"]} />
+          </h1>
+          <h1 className="font-kaghaz  text-center text-4xl md:text-6xl text-gray-900 font-bold tracking-tight ">
+            شما
+          </h1>
+        </div>
 
         <div className="relative">
           <div dir="ltr" className="grid grid-cols-2 gap-3 md:h-[620px]">
