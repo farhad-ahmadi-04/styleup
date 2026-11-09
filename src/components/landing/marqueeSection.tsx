@@ -32,7 +32,7 @@ export function MarqueeSection() {
   return (
     <section className="my-10 lg:my-20">
       <Container>
-        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+        <div className="relative flex w-full flex-col items-center justify-center rounded-full overflow-hidden">
           <Marquee className="[--duration:25s]">
             {firstRow.map((text, index) => (
               <div key={index} className="flex items-center">
