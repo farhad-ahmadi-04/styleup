@@ -57,7 +57,7 @@ export default function HeroSection() {
       <Container>
         <div className=" flex items-center justify-center gap-2 md:gap-4">
           <DiaTextReveal
-            className="font-kaghaz text-4xl md:text-6xl font-bold tracking-tight"
+            className="font-kaghaz text-3xl sm:text-4xl md:text-6xl text-center font-bold tracking-tight"
             colors={["#f97316", "#eab308", "#22c55e", "#3b82f6", "#a855f7"]}
             delay={0.35}
             duration={2.4}
