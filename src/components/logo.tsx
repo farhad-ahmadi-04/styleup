@@ -10,7 +10,7 @@ function Logo() {
         height={36}
         className="w-6 h-6 md:h-9 md:w-9"
       />
-      <span className="hidden md:block text-amber-300 font-kaghaz font-bold text-2xl m-auto text-center tracking-wider">
+      <span className="hidden md:block text-amber-600 font-kaghaz font-bold text-2xl  text-center tracking-wider">
         استایل آپ
       </span>
     </div>
