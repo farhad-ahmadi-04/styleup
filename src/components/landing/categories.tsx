@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Spinner } from "../ui/spinner";
 import Container from "../container";
+import CategoriesSkeleton from "./categoriesSkeleton";
 
 function Categories() {
   const [categories, setCategories] = useState<any[]>([]);
@@ -29,7 +29,7 @@ function Categories() {
     fetchCategory();
   }, []);
 
-  if (loading) return <Spinner />;
+  if (loading) return <CategoriesSkeleton />;
   if (error) return <p>{error}</p>;
   if (!categories) return <p>دسته بندی نیست</p>;
 
