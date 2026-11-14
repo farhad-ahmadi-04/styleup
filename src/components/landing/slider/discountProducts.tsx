@@ -10,8 +10,10 @@ import { getDiscountProducts, ProductWithRelations } from "@/actions/getAction";
 import ProductCard from "../../productCard";
 import { useEffect, useRef, useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowLeftCircle, ArrowRightCircle, Sparkles } from "lucide-react";
 import { Swiper as SwiperType } from "swiper/types";
+import ProductsSliderSkeleton from "./productsSliderSkeleton";
 
 function DiscountProductsSlider() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,9 +53,9 @@ function DiscountProductsSlider() {
                 <Button className="cursor-pointer">مشاهده همه</Button>
               </Link>
             </div>
-            <p className="text-center text-sm">
-              <Spinner className="size-6" />
-            </p>
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-4 xl:grid-cols-6">
+              <ProductsSliderSkeleton />
+            </div>
           </div>
         </Container>
       </section>
