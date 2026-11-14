@@ -9,7 +9,7 @@ function Footer() {
         <div className="w-full flex flex-col items-center md:flex-row md:justify-between md:items-start gap-8">
           <div className="flex flex-col gap-2 items-center md:items-start justify-center sm:w-3/12">
             <Link href="/">
-              <Logo />
+              <Logo className="block text-xl md:text-2xl" />
             </Link>
             <p className="text-sm text-gray-400">طراحی شده با عشق</p>
             <p className="text-sm text-gray-400">دولوپ با فرهاد</p>
