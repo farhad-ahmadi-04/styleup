@@ -1,6 +1,14 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 function Sortby({ options }: { options: { value: string; label: string }[] }) {
   const searchParams = useSearchParams();
@@ -14,21 +22,20 @@ function Sortby({ options }: { options: { value: string; label: string }[] }) {
   };
 
   return (
-    <div className="flex items-center gap-2 text-sm text-gray-500 my-6">
-      <span> نمایش: </span>
-      <select
-        name="sort"
-        id="sort"
-        className="ring-1 ring-gray-200 shadow-md p-1 rounded-sm"
-        onChange={(e) => handleSortby(e.target.value)}
-      >
-        {options.map((option) => (
-          <option value={option.value} key={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
+    <Select onValueChange={(value) => handleSortby(value)}>
+      <SelectTrigger>
+        <SelectValue placeholder="مرتب سازی" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          {options.map((option) => (
+            <SelectItem value={option.value} key={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 }
 
