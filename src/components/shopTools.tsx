@@ -11,6 +11,8 @@ import {
 } from "./ui/breadcrumb";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
+import FilterProducts from "./filter";
+import { Separator } from "./ui/separator";
 
 const perPageQuantity = [9, 12, 18, 24];
 
@@ -36,23 +38,29 @@ function ShopTools() {
   };
 
   return (
-    <div className="flex items-center justify-between gap-2">
-      {/* breadcrumb for show side of pages */}
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">خانه</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem className="text-gray-900">
-            <BreadcrumbLink href="/shop">فروشگاه</BreadcrumbLink>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2">
+      <div className="flex items-center justify-between py-2 lg:py-0">
+        {/* breadcrumb for show side of pages */}
+        <Breadcrumb className="">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">خانه</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem className="text-gray-900">
+              <BreadcrumbLink href="/shop">فروشگاه</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
-      {/* quantity of products card for page */}
-      <div className="flex items-center gap-2">
-        <div className="flex items-center gap-1">
+        <p className="text-sm text-gray-500 lg:hidden">در حال نمایش 10 محصول</p>
+      </div>
+
+      <Separator className="lg:hidden bg-gray-400/40" />
+
+      <div className="flex items-center justify-between gap-2 w-full lg:w-fit">
+        {/* quantity of products card for page */}
+        <div className="hidden lg:flex items-center gap-1">
           <span className="text-sm">نمایش: </span>
           <ul className="flex items-center ">
             {perPageQuantity.map((item, index) => (
@@ -75,6 +83,10 @@ function ShopTools() {
               </div>
             ))}
           </ul>
+        </div>
+
+        <div className="lg:hidden">
+          <FilterProducts />
         </div>
 
         {/* sort for products */}
