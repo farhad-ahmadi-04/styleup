@@ -52,9 +52,20 @@ function FilterProducts() {
         </SheetContent>
       </Sheet>
 
-      <Card className="hidden lg:flex justify-center items-center">
-        <CardHeader>filter</CardHeader>
-      </Card>
+      <div className="hidden lg:flex flex-col gap-4 sticky top-36">
+        <Card className="flex justify-center items-center">
+          <CardHeader>فیلتر قیمت</CardHeader>
+        </Card>
+        <Card className="flex justify-center items-center">
+          <CardHeader>فیلتر دسته بندی</CardHeader>
+        </Card>
+        <Card className="flex justify-center items-center">
+          <CardHeader>فیلتر رنگ</CardHeader>
+        </Card>
+        <Card className="flex justify-center items-center">
+          <CardHeader>فیلتر موجودی</CardHeader>
+        </Card>
+      </div>
     </>
   );
 }
