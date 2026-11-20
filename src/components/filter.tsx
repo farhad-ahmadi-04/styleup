@@ -1,0 +1,62 @@
+"use client";
+
+import { Menu } from "lucide-react";
+import { Button } from "./ui/button";
+import { Card, CardHeader } from "./ui/card";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
+
+function FilterProducts() {
+  return (
+    <>
+      <Sheet>
+        <SheetTrigger className="lg:hidden" asChild>
+          <Button variant="ghost">
+            <Menu /> مشاهده فیلترها
+          </Button>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Edit profile</SheetTitle>
+            <SheetDescription>
+              Make changes to your profile here. Click save when you&apos;re
+              done.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="grid flex-1 auto-rows-min gap-6 px-4">
+            <div className="grid gap-3">
+              <Label htmlFor="sheet-demo-name">Name</Label>
+              <Input id="sheet-demo-name" defaultValue="Pedro Duarte" />
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="sheet-demo-username">Username</Label>
+              <Input id="sheet-demo-username" defaultValue="@peduarte" />
+            </div>
+          </div>
+          <SheetFooter>
+            <Button type="submit">Save changes</Button>
+            <SheetClose asChild>
+              <Button variant="outline">close</Button>
+            </SheetClose>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
+
+      <Card className="hidden lg:flex justify-center items-center">
+        <CardHeader>filter</CardHeader>
+      </Card>
+    </>
+  );
+}
+
+export default FilterProducts;
