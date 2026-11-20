@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/container";
 import ShopTools from "@/components/shopTools";
+import FilterProducts from "@/components/filter";
 
 export const metadata: Metadata = {
   title: "e-commerce | Styleup",
@@ -23,10 +24,12 @@ export default async function RootLayout({
         </Container>
       </section>
       <section>
-        <Container>
+        <Container className="grid lg:grid-cols-4 gap-4">
           {/* filter box */}
-          <div></div>
-          <div className="space-y-2">
+          <div className="col-span-1 hidden lg:block">
+            <FilterProducts />
+          </div>
+          <div className="space-y-2 col-span-3">
             <ShopTools />
             <div>{children}</div>
           </div>
