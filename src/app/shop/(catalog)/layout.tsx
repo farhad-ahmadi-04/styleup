@@ -15,9 +15,9 @@ export default async function RootLayout({
 }>) {
   return (
     <>
-      <section>
+      <section className="my-10 lg:my-20">
         <Container>
-          <h1 className="text-center py-8 bg-blue-400 rounded-2xl text-white font-kaghaz text-5xl">
+          <h1 className="text-center py-8 bg-gray-800 rounded-2xl text-white font-kaghaz text-5xl">
             فروشگاه
           </h1>
         </Container>
