@@ -1,4 +1,3 @@
-import Container from "@/components/container";
 import ProductList from "@/components/productList";
 
 async function ProductsPage({
@@ -8,13 +7,7 @@ async function ProductsPage({
 }) {
   const category = (await searchParams).category;
 
-  return (
-    <section>
-      <Container>
-        <ProductList category={category} />
-      </Container>
-    </section>
-  );
+  return <ProductList category={category} />;
 }
 
 export default ProductsPage;
