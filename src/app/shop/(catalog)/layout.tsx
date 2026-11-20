@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "@/app/globals.css";
 import Container from "@/components/container";
+import ShopTools from "@/components/shopTools";
 
 export const metadata: Metadata = {
   title: "e-commerce | Styleup",
@@ -15,14 +15,23 @@ export default async function RootLayout({
 }>) {
   return (
     <>
-      <section className="my-10 lg:my-20">
+      <section className="my-10">
         <Container>
           <h1 className="text-center py-8 bg-gray-800 rounded-2xl text-white font-kaghaz text-5xl">
             فروشگاه
           </h1>
         </Container>
       </section>
-      {children}
+      <section>
+        <Container>
+          {/* filter box */}
+          <div></div>
+          <div className="space-y-2">
+            <ShopTools />
+            <div>{children}</div>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
