@@ -11,7 +11,7 @@ async function ProductsPage({
   return (
     <section>
       <Container>
-        <ProductList category={category} params="productsPage" />
+        <ProductList category={category} />
       </Container>
     </section>
   );
