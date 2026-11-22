@@ -10,7 +10,6 @@ import { getNewestProducts, ProductWithRelations } from "@/actions/getAction";
 import ProductCard from "../../productCard";
 import { useEffect, useRef, useState } from "react";
 import "swiper/css/navigation";
-import { Spinner } from "@/components/ui/spinner";
 import { ArrowLeftCircle, ArrowRightCircle, Sparkles } from "lucide-react";
 import { Swiper as SwiperType } from "swiper/types";
 import ProductsSliderSkeleton from "./productsSliderSkeleton";
