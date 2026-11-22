@@ -24,11 +24,11 @@ function ShopTools() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-  const [perPage, setPerPage] = useState("");
+  const [perPage, setPerPage] = useState("12");
 
   useEffect(() => {
     const urlParams = searchParams.get("per_page");
-    setPerPage(urlParams?.toString() || "18");
+    setPerPage(urlParams?.toString() || perPage);
   }, [searchParams]);
 
   const handleToolsShop = (value: string) => {
@@ -65,14 +65,13 @@ function ShopTools() {
           <ul className="flex items-center ">
             {perPageQuantity.map((item, index) => (
               <div key={item} className="flex items-center">
-                <li
-                  className="text-sm text-gray-500"
-                  onClick={() => handleToolsShop(item.toString())}
-                >
+                <li>
                   <Button
                     variant={"link"}
                     size={"sm"}
-                    className={`text-sm text-gray-500 cursor-pointer ${item.toString() === perPage && "text-gray-900"}`}
+                    onClick={() => handleToolsShop(item.toString())}
+                    className={`text-sm text-gray-500 cursor-pointer ${item.toString() === perPage && "disabled:text-gray-900 disabled:opacity-100"}`}
+                    disabled={item.toString() === perPage}
                   >
                     {item}
                   </Button>
