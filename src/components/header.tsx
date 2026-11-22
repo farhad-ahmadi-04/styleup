@@ -103,7 +103,7 @@ function Header() {
                           <li key={category.id}>
                             <SheetClose asChild>
                               <Link
-                                href={`/shop/category/${category.slug}`}
+                                href={`/shop/category/${category.slug}_${category.id}`}
                                 className="block rounded-md px-3 py-2.5 text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                               >
                                 {category.name}
@@ -184,7 +184,7 @@ function Header() {
             categories.map((category) => (
               <Link
                 key={category.id}
-                href={`/shop/category/${category.slug}`}
+                href={`/shop/category/${category.slug}_${category.id}`}
                 className="shrink-0 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {category.name}
