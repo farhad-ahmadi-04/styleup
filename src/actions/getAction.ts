@@ -24,14 +24,55 @@ const productsQuery = supabase.from("products").select(PRODUCT_SELECT);
 export type ProductWithRelations = QueryData<typeof productsQuery>[number];
 
 // get all products
-export async function getProducts() {
-  const { data, error } = await supabase
-    .from("products")
-    .select(PRODUCT_SELECT)
-    .order("created_at", { ascending: false });
+export async function getProducts({
+  range,
+  order,
+}: {
+  range?: number;
+  order?: { sortby: string; value: boolean };
+  category?: string;
+}) {
+  try {
+    const { data, error } = await supabase
+      .from("products")
+      .select(PRODUCT_SELECT)
+      .order(order?.sortby || "created_at", {
+        ascending: order?.value || false,
+      })
+      .range(0, range || 12);
 
-  if (error) throw new Error(error.message);
-  return data;
+    if (error) throw new Error(error.message);
+    return data;
+  } catch (error) {
+    throw new Error(error as string);
+  }
+}
+
+// get product by category
+export async function getProductsByCategory({
+  range,
+  order,
+  category,
+}: {
+  range?: number;
+  order?: { sortby: string; value: boolean };
+  category: string;
+}) {
+  try {
+    const { data, error } = await supabase
+      .from("products")
+      .select(PRODUCT_SELECT)
+      .order(order?.sortby || "created_at", {
+        ascending: order?.value || false,
+      })
+      .eq("category_id", Number(category))
+      .range(0, range || 12);
+
+    if (error) throw new Error(error.message);
+    return data;
+  } catch (error) {
+    throw new Error(error as string);
+  }
 }
 
 // get product by id
