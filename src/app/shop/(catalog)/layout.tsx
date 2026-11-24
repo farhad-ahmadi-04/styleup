@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/layout/container";
 import ShopTools from "@/components/shop/shopTools";
-import FilterProducts from "@/components/filter";
+import FilterProducts from "@/components/shop/filter";
 
 export const metadata: Metadata = {
   title: "e-commerce | Styleup",
