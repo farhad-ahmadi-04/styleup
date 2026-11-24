@@ -2,6 +2,7 @@
 
 import ProductCard from "@/components/shop/productCard";
 import {
+  getProducts,
   getProductsByCategory,
   ProductWithRelations,
 } from "@/actions/products";
@@ -39,13 +40,20 @@ function ProductList({ category }: { category?: string }) {
       }
 
       try {
-        const data = await getProductsByCategory({
-          range: perPage - 1,
-          order: sorting,
-          category: category || "",
-        });
-
-        setProducts(data);
+        if (category) {
+          const data = await getProductsByCategory({
+            range: perPage - 1,
+            order: sorting,
+            category: category,
+          });
+          setProducts(data);
+        } else {
+          const data = await getProducts({
+            range: perPage - 1,
+            order: sorting,
+          });
+          setProducts(data);
+        }
       } catch (error) {
         setError((error as Error).message);
       } finally {
