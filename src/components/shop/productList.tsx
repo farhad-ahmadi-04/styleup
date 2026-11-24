@@ -40,17 +40,42 @@ function ProductList({ category }: { category?: string }) {
       }
 
       try {
+        const status = searchParams.get("status")?.split(",").filter(Boolean);
+        const filters = {
+          category: searchParams.get("category")?.split(",").filter(Boolean),
+          color: searchParams.get("color")?.split(",").filter(Boolean),
+          status: status?.length === 1 ? status : undefined,
+          discount: searchParams.get("discount") === "true",
+          minPrice: Number(searchParams.get("min_price")),
+          maxPrice: Number(searchParams.get("max_price")),
+        };
+
+        // normalization the filters for using
+        const normalizedFilters = {
+          ...filters,
+          minPrice:
+            Number.isFinite(filters.minPrice) && searchParams.get("min_price")
+              ? filters.minPrice
+              : undefined,
+          maxPrice:
+            Number.isFinite(filters.maxPrice) && searchParams.get("max_price")
+              ? filters.maxPrice
+              : undefined,
+        };
+
         if (category) {
           const data = await getProductsByCategory({
             range: perPage - 1,
             order: sorting,
             category: category,
+            filters: normalizedFilters,
           });
           setProducts(data);
         } else {
           const data = await getProducts({
             range: perPage - 1,
             order: sorting,
+            filters: normalizedFilters,
           });
           setProducts(data);
         }
