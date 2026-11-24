@@ -1,9 +1,9 @@
 "use client";
 
-import { ProductWithRelations } from "@/actions/getAction";
+import { ProductWithRelations } from "@/actions/products";
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardHeader, CardTitle } from "../ui/card";
 
 function ProductCard({ product }: { product: ProductWithRelations }) {
   // const [productTypes, setProductTypes] = useState({

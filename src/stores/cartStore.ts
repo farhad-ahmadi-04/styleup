@@ -1,4 +1,4 @@
-import { CartStoreActionsType, CartStoreStateType } from "@/app/types";
+import { CartStoreActionsType, CartStoreStateType } from "@/types/types";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { getCategories } from "@/actions/getAction";
+import { getCategories } from "@/actions/categories";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,14 +10,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import type { Database } from "@/lib/supabase/database.types";
+import type { Database } from "@/types/database.types";
 import { Menu, Phone } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Logo from "@/components/logo";
-import SearchBar from "@/components/searchbar";
-import ShoppingCart from "@/components/shoppingCart";
-import Container from "./container";
+import Logo from "@/components/layout/logo";
+import SearchBar from "@/components/shop/searchbar";
+import ShoppingCart from "@/components/cart/shoppingCart";
+import Container from "@/components/layout/container";
 
 type Category = Database["public"]["Tables"]["categories"]["Row"];
 

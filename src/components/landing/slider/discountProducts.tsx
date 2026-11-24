@@ -3,11 +3,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import Container from "../../container";
+import Container from "../../layout/container";
 import { Button } from "../../ui/button";
 import Link from "next/link";
-import { getDiscountProducts, ProductWithRelations } from "@/actions/getAction";
-import ProductCard from "../../productCard";
+import { getDiscountProducts, ProductWithRelations } from "@/actions/products";
+import ProductCard from "../../shop/productCard";
 import { useEffect, useRef, useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import { Skeleton } from "@/components/ui/skeleton";

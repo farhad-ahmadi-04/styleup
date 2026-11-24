@@ -1,5 +1,5 @@
-import Container from "@/components/container";
-import ProductInteraction from "@/components/productInteraction";
+import Container from "@/components/layout/container";
+import ProductInteraction from "@/components/product/productInteraction";
 import Image from "next/image";
 
 // TEMPORARY

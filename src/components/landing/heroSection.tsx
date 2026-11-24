@@ -2,10 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Container from "../container";
-import { TypingAnimation } from "../ui/typing-animation";
-import { WordRotate } from "../ui/word-rotate";
-import { DiaTextReveal } from "../ui/dia-text-reveal";
+import Container from "@/components/layout/container";
+import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 
 type HeroPanel = {
   title: string;

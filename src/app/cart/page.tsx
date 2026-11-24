@@ -1,7 +1,7 @@
 "use client";
 
-import { ShippingFormInputs } from "@/app/types";
-import Container from "../../components/container";
+import { ShippingFormInputs } from "@/types/types";
+import Container from "../../components/layout/container";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Trash2 } from "lucide-react";
 import ShippingForm from "../../components/shippingForm";

@@ -1,7 +1,6 @@
-import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/ui/marquee";
-import Container from "../container";
-import { Sparkles, Star } from "lucide-react";
+import Container from "@/components/layout/container";
+import { Sparkles } from "lucide-react";
 
 const reviews = [
   "قابل اعتماد",

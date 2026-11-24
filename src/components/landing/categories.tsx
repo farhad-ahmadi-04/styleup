@@ -1,13 +1,13 @@
 "use client";
 
-import { getCategories } from "@/actions/getAction";
+import { getCategories } from "@/actions/categories";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import Container from "../container";
-import CategoriesSkeleton from "./categoriesSkeleton";
+import Container from "@/components/layout/container";
+import CategoriesSkeleton from "@/components/landing/categoriesSkeleton";
 
 function Categories() {
   const [categories, setCategories] = useState<any[]>([]);

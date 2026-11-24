@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Container from "../container";
-import { Button } from "../ui/button";
-import { Card, CardHeader } from "../ui/card";
+import Container from "@/components/layout/container";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
 
 const suggestionBoxData = [

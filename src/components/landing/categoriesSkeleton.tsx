@@ -1,5 +1,5 @@
-import Container from "../container";
-import { Skeleton } from "../ui/skeleton";
+import Container from "@/components/layout/container";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function CategoriesSkeleton() {
   return (

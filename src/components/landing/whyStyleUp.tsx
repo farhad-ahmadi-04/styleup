@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Container from "@/components/container";
+import Container from "@/components/layout/container";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { BorderBeam } from "../ui/border-beam";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const accordionData = [
   {

@@ -8,11 +8,11 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from "./ui/breadcrumb";
-import { Button } from "./ui/button";
+} from "../ui/breadcrumb";
+import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
-import FilterProducts from "./filter";
-import { Separator } from "./ui/separator";
+import FilterProducts from "@/components/shop/filter";
+import { Separator } from "../ui/separator";
 
 const perPageQuantity = [9, 12, 18, 24];
 

@@ -1,4 +1,4 @@
-import ProductList from "@/components/productList";
+import ProductList from "@/components/shop/productList";
 
 async function CategoryPage({
   params,

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Container from "@/components/container";
-import ShopTools from "@/components/shopTools";
+import Container from "@/components/layout/container";
+import ShopTools from "@/components/shop/shopTools";
 import FilterProducts from "@/components/filter";
 
 export const metadata: Metadata = {

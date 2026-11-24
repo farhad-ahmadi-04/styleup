@@ -1,10 +1,10 @@
 "use client";
 
-import ProductCard from "@/components/productCard";
+import ProductCard from "@/components/shop/productCard";
 import {
   getProductsByCategory,
   ProductWithRelations,
-} from "@/actions/getAction";
+} from "@/actions/products";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductsListSkeleton from "./productsListSkeleton";

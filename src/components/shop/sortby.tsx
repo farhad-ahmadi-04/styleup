@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "@/components/ui/select";
 
 function Sortby({ options }: { options: { value: string; label: string }[] }) {
   const searchParams = useSearchParams();

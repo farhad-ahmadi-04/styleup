@@ -1,6 +1,6 @@
 import { Bell, House } from "lucide-react";
 import Link from "next/link";
-import ShoppingCart from "./shoppingCart";
+import ShoppingCart from "@/components/cart/shoppingCart";
 
 const nav = [
   {
