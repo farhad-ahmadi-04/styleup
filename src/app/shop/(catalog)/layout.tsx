@@ -23,7 +23,7 @@ export default async function RootLayout({
           </h1>
         </Container>
       </section>
-      <section>
+      <section className="mb-10">
         <Container className="grid lg:grid-cols-4 gap-4">
           {/* filter box */}
           <div className="col-span-1 hidden lg:block">
