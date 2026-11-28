@@ -1,17 +1,26 @@
+import { supabase } from "@/lib/supabase/supabase";
+import { QueryData } from "@supabase/supabase-js";
 import * as z from "zod";
 
-export type ProductType = {
-  id: string | number;
-  name: string;
-  shortDescription: string;
-  description: string;
-  price: number;
-  sizes: string[];
-  colors: string[];
-  images: Record<string, string>;
-};
+const productWithVariantsQuery = supabase
+  .from("products")
+  .select(`*, product_variants (*), product_images(*)`)
+  .eq("id", 1)
+  .single();
+export type ProductWithVariants = QueryData<typeof productWithVariantsQuery>;
 
-export type CartItemType = ProductType & {
+// export type ProductType = {
+//   id: string | number;
+//   name: string;
+//   shortDescription: string;
+//   description: string;
+//   price: number;
+//   sizes: string[];
+//   colors: string[];
+//   images: Record<string, string>;
+// };
+
+export type CartItemType = ProductWithVariants & {
   quantity: number;
   selectedSize: string;
   selectedColor: string;
