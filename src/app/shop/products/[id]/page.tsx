@@ -1,24 +1,7 @@
+import { getProductById } from "@/actions/products";
 import Container from "@/components/layout/container";
 import ProductInteraction from "@/components/product/productInteraction";
 import Image from "next/image";
-
-// TEMPORARY
-const product = {
-  id: 1,
-  name: "تیشرت آدیداس CoreFit",
-  shortDescription:
-    "تیشرتی راحت و سبک با طراحی مدرن، مناسب استفاده روزمره و ورزشی.",
-  description:
-    "تیشرت آدیداس CoreFit با طراحی ساده و کاربردی، مناسب برای استفاده روزمره و فعالیت‌های ورزشی. پارچه نرم و راحت آن آزادی حرکت مناسبی فراهم می‌کند.",
-  price: 3700000,
-  sizes: ["s", "m", "l", "xl", "xxl"],
-  colors: ["gray", "purple", "green"],
-  images: {
-    gray: "/products/1g.png",
-    purple: "/products/1p.png",
-    green: "/products/1gr.png",
-  },
-};
 
 export const generateMetadata = async ({
   params,
@@ -26,9 +9,10 @@ export const generateMetadata = async ({
   params: { id: string };
 }) => {
   // todo: get product from db
+  const data = await getProductById(Number((await params).id));
   return {
-    title: product.name,
-    description: product.description,
+    title: data.name,
+    description: data.description,
   };
 };
 
@@ -39,36 +23,40 @@ async function ProductPage({
   params: Promise<{ id: string }>;
   searchParams: Promise<{ color: string; size: string }>;
 }) {
+  const data = await getProductById(Number((await params).id));
+
   const { color, size } = await searchParams;
 
-  const selectedColor = (color ||
-    product.colors[0]) as keyof typeof product.images;
-  const selectedSize = (size || product.sizes[0]) as string;
+  const selectedColor = color || data.product_variants[0].color;
+  const selectedSize = size || data.product_variants[0].size;
+  const selectedImage =
+    data.product_images.find((image) => image.color === selectedColor)?.url ||
+    data.product_images[0].url;
 
   return (
     <section>
       <Container>
         <div className="flex flex-col gap-4 lg:flex-row md:pag-12 mt-12">
           {/* image */}
-          <div className="w-full lg:w-5/12 relative aspect-[2/3]">
+          <div className="w-full lg:w-5/12 lg:h-[800px] relative aspect-[2/3]">
             <Image
-              src={product.images[selectedColor]}
-              alt={product.name}
+              src={selectedImage}
+              alt={data.name}
               fill
-              className="object-contain rounded-md"
+              className="object-center object-cover rounded-md"
             />
           </div>
 
           {/* details */}
           <div className="w-full lg:w-7/12 flex flex-col gap-4">
-            <h1 className="text-2xl font-medium">{product.name}</h1>
-            <p className="text-gray-500">{product.description}</p>
+            <h1 className="text-2xl font-medium">{data.name}</h1>
+            <p className="text-gray-500">{data.description}</p>
             <h2 className="text-2xl font-medium">
-              {product.price.toLocaleString("fa-IR")}
+              {data.final_price.toLocaleString("fa-IR")}
             </h2>
             {/* interaction */}
             <ProductInteraction
-              product={product}
+              product={data}
               selectedColor={selectedColor}
               selectedSize={selectedSize}
             />
