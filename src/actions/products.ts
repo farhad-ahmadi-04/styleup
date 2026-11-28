@@ -155,7 +155,11 @@ export async function getProductsByCategory({
 export async function getProductById(id: number) {
   const { data, error } = await supabase
     .from("products")
-    .select(PRODUCT_SELECT)
+    .select(
+      `* ,
+      product_variants (*),
+      product_images(*)`,
+    )
     .eq("id", id)
     .single();
 
